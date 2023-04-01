@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- 인코딩 meta 코드 -->
+    <meta charset="UTF-8">
+    <!-- 브라우저 버전 - edge 모든 브라우저 호환 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 너비를 장치너비로 설정 ,초기 화면배율(initial-scale) 설정 (zoom 레벨 설정) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .myprofile__dateBtn {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+
+            padding: 1rem;
+
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 1rem;
+            background-color: palevioletred;
+        }
+
+        #myprofile__dateId {
+            background-color: palegreen;
+        }
+
+        body>h1 {
+            background-color: lightcoral;
+        }
+
+        header>h1 {
+            background-color: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>햅히의 1차 세미나</h1>
+        <h3>HTML CSS 정복하기 </h3>
+    </header>
+
+    <h1>Semantic Tag</h1>
+    <select name="languages" id="lang">
+        <option value="javascript">JavaScript</option>
+        <option value="php">PHP</option>
+        <option value="java">Java</option>
+        <option value="golang">Golang</option>
+        <option value="python">Python</option>
+        <option value="c#">C#</option>
+        <option value="C++">C++</option>
+        <option value="erlang">Erlang</option>
+    </select>
+
+    <label for="ice-cream-choice">Choose a flavor:</label>
+    <input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice">
+
+    <datalist id="ice-cream-flavors">
+        <option value="Chocolate">
+        <option value="Coconut">
+        <option value="Mint">
+        <option value="Strawberry">
+    </datalist>
+
+    <button type="button" class="myprofile__dateBtn" id="myprofile__dateId" style="background-color: blue">
+        웹팟장과 데이뚜💛
+    </button>
+    <script>
+        const increaseWebSkill = (development) => {
+            return ++development;
+        };
+        const decreaseWebSkill = (development) => {
+            return --development;
+        };
+
+        const predicateWebSkill = { increaseWebSkill, decreaseWebSkill };
+
+        const makeFrontEndDeveloper = (predicateWebSkill) => {
+            let currentDevelopment = 10;
+
+            return () => {
+                currentDevelopment = predicateWebSkill(currentDevelopment);
+                return currentDevelopment;
+            }
+        }
+
+        const increaser = makeFrontEndDeveloper(predicateWebSkill.increaseWebSkill);
+        const decreaser = makeFrontEndDeveloper(predicateWebSkill.decreaseWebSkill);
+
+        // 값을 예측해보자!!!!!!
+        console.log(increaser());
+        console.log(increaser());
+
+
+        console.log(decreaser());
+        console.log(decreaser());
+
+        console.log(increaser());
+
+        // 👇 필터되는 조건을 직접 구현 
+        const webPartMember = [{ name: '현슈', type: 'OB' }, { name: '지슈', type: 'OB' }, { name: '은서', type: 'YB' }, { name: '형근', type: 'YB' }];
+
+        const isOBMember = (info) => {
+            return info.type === 'OB';
+        }
+        const isYBMember = (info) => {
+            return info.type === 'YB';
+        }
+
+        const OBMember = webPartMember.filter(isOBMember);
+        const YBMember = webPartMember.filter(isYBMember);
+
+        console.log(OBMember, YBMember)
+
+        var happhee = 'Happhee'
+
+        if (true) {
+            var happhee = 'WEB Happhee';
+        }
+
+        function changeName() {
+            var happhee = 'Function Happhee';
+        }
+        // 과연 어떤 값이 출력될까?
+        console.log(happhee);
+
+        var web = 'Happhee';
+
+        function addOBWeb() {
+            var web = 'OB_Web';
+            addYBWeb();
+            console.log(web); // 2번 ->  
+        }
+        function addYBWeb() {
+            console.log(web); // 1번 -> 
+        }
+
+        addOBWeb();
+        //addYBWeb();
+
+        var happhee = 'Happhee'
+
+        if (true) {
+            const happhee = 'WEB Happhee';
+            console.log(happhee)
+        }
+
+        function changeName() {
+            var happhee = 'Function Happhee';
+        }
+        // 과연 어떤 값이 출력될까?
+        console.log(happhee);
+
+        for (var num = 0; num < 5; num++) {
+
+            setTimeout(() => {
+                console.log(num);
+            }, (num + 1) * 1000); // 
+        }
+    </script>
+</body>
+
+</html>
