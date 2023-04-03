@@ -214,9 +214,13 @@ main nav .category:hover {
 
 .tagContainer {
     width: 200px;
+    height: 15px;
     overflow: hidden;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     text-align: center;
+
+    /* 글자지켜! */
+    word-break: keep-all;
 }
 
 .tagContainer .tag::before {
