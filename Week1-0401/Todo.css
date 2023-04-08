@@ -161,6 +161,10 @@ main #todolist .category .category-title .title {
 }
 
 /* 메인 투두리스트 영역 */
+main #todolist .category{
+    min-width: 40%;
+}
+
 main #todolist .category .todo {
     padding-top: 0.4rem;
     color: black;

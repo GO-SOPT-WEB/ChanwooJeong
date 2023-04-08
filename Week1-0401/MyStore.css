@@ -126,7 +126,7 @@ main nav .category:hover {
 /* 메인파트2 : cardSection */
 #cardSection {
     width: 100%;
-    height: 1000px;
+    height: 100%;
     padding: 0 50px;
 
     display: grid;
