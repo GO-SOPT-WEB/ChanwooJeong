@@ -40,17 +40,17 @@ header {
     user-select: none;
 }
 
-header menu {
+header aside {
     display: flex;
     flex-direction: row;
 
 }
 
-header menu a {
+header aside a {
     margin: 0 10px;
 }
 
-header menu a:hover {
+header aside a:hover {
     color: plum;
 }
 
@@ -59,11 +59,11 @@ header menu a:hover {
         padding: 20px;
     }
 
-    header>menu {
+    header>aside {
         display: none;
     }
 
-    header>menu a {
+    header>aside a {
         margin: 1rem;
     }
 
@@ -71,8 +71,8 @@ header menu a:hover {
         display: block;
     }
 
-    #hamberger:hover+menu,
-    menu:hover {
+    #hamberger:hover+aside,
+    aside:hover {
         display: flex;
         flex-direction: column;
         position: fixed;
@@ -92,7 +92,6 @@ header menu a:hover {
 main {
     display: flex;
     flex-direction: row;
-
     margin: 10px;
     margin-top: 5rem;
     padding: 10px;
@@ -126,9 +125,8 @@ main nav .category:hover {
 /* 메인파트2 : cardSection */
 #cardSection {
     width: 100%;
-    height: 1000px;
+    height: 100%;
     padding: 0 50px;
-
     display: grid;
     grid-gap: 20px;
     grid-template-columns: repeat(6, 250px);
