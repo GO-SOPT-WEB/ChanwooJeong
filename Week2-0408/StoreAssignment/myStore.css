@@ -1,0 +1,268 @@
+@font-face {
+    font-family: 'NeoDunggeunmoPro-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* body CSS */
+body {
+    font-family: 'NeoDunggeunmoPro-Regular';
+    background-color: rgb(252, 233, 233);
+
+}
+
+/* HeaderBar 관련 CSS */
+header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.logo {
+    font-size: 28px;
+    color: #333;
+}
+
+#hamberger {
+    display: none;
+    cursor: pointer;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    user-select: none;
+}
+
+header aside {
+    display: flex;
+    flex-direction: row;
+
+}
+
+header aside a {
+    margin: 0 10px;
+}
+
+header aside a:hover {
+    color: plum;
+}
+
+@media (max-width: 1000px) {
+    header {
+        padding: 20px;
+    }
+
+    header>aside {
+        display: none;
+    }
+
+    header>aside a {
+        margin: 1rem;
+    }
+
+    #hamberger {
+        display: block;
+    }
+
+    #hamberger:hover+aside,
+    aside:hover {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        height: 100vh;
+        width: 250px;
+        top: 0;
+        right: 0;
+        background-color: #f8f8f8;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        padding: 1rem;
+    }
+}
+
+/* Main파트 CSS */
+
+/* 메인파트1 : nav */
+main {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    margin-top: 5rem;
+    padding: 10px;
+}
+
+main nav {
+    display: flex;
+    padding: 10px;
+    position: sticky;
+    top: 5rem;
+    flex-direction: column;
+    min-width: 150px;
+    height: fit-content;
+    background-color: #f1f1f1;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+main nav .category {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10%;
+}
+
+main nav .category:hover {
+    background-color: palevioletred;
+    color: white;
+}
+
+/* 메인파트2 : cardSection */
+#cardSection {
+    width: 100%;
+    height: 100%;
+    padding: 0 50px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(6, 250px);
+    grid-auto-rows: 300px;
+}
+
+@media screen and (max-width: 1800px) {
+    #cardSection {
+        grid-template-columns: repeat(5, 250px);
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    #cardSection {
+        grid-template-columns: repeat(4, 250px);
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    #cardSection {
+        grid-template-columns: repeat(3, 250px);
+    }
+}
+
+@media screen and (max-width:1100px) {
+    #cardSection {
+        grid-template-columns: repeat(2, 250px);
+    }  
+}
+
+@media screen and (max-width: 900px) {
+    #cardSection {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0 150px;
+    }
+}
+
+/* 메인파트3 : cardSection > Card CSS */
+
+#cardSection .card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 5px;
+    transform-style: preserve-3d;
+    background-color: white;
+}
+
+#cardSection .card::before {
+    position: absolute;
+    content: ' ';
+    display: block;
+    width: 160px;
+    height: 500px;
+    background: linear-gradient(90deg, transparent, purple, transparent);
+    animation: rotation_border 5000ms infinite linear;
+    z-index: -1;
+}
+
+#cardSection .card .card-content {
+    width: 98%;
+    height: 98%;
+    border: 1px solid purple;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: white;
+}
+
+#cardSection .card .card-content img {
+    width: 150px;
+}
+
+@keyframes rotation_border {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    0% {
+        transform: rotateZ(360deg);
+    }
+}
+
+.tagContainer {
+    width: 200px;
+    height: 15px;
+    overflow: hidden;
+    /* white-space: nowrap; */
+    text-align: center;
+
+    /* 글자지켜! */
+    word-break: keep-all;
+}
+
+.tagContainer .tag::before {
+    content: "#";
+}
+
+.pokemonName {
+    font-size: 25px;
+}
+
+.JJim {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.favorite {
+    padding: 5px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.heart {
+    display: none;
+}
+
+#cardSection label::before {
+    content: '🤍';
+    display: block;
+}
+
+#cardSection .heart:hover+label::before {
+    content: '❤️';
+    cursor: pointer;
+}
+
+#cardSection .heart:checked+label::before {
+    content: '❤️';
+}
