@@ -5,12 +5,21 @@ const activeNav = ["all"];
 
 //처음 로딩시 전체 카드 노출
 window.onload = function () {
+
+  //포켓몬리스트Data 동기화 (로컬스토리지 반영)
+  for (var i = 0; i < localStorage.length; i++) {
+    var key = localStorage.key(i);
+    var newPokemon = localStorage.getItem(key);
+    const pokemonObj = JSON.parse(newPokemon);
+    POKEMON_LIST.push(pokemonObj);
+  }
+
   addCategorySection(activeNav);
   const filteredCard = filterCard(activeNav);
   addCardItem(filteredCard);
 };
 
-// 필터에 맞는 카드 배열에 담아서 return 함수
+// 필터에 맞는 카드 배열에 담아서 return 하는 함수
 const filterCard = (activeNav) => {
   let filterdCard = [];
   if (activeNav.indexOf("all") !== -1) {
@@ -125,7 +134,7 @@ const addCardItem = (filteredCard) => {
     const plusButton = element.querySelector(".plusTag");
     const tagModal = element.querySelector(".tagModal");
     const exitIcon = element.querySelector(".exitIcon");
-    
+
     plusButton.addEventListener("click", (e) => {
       tagModal.style.display = "flex";
     });
@@ -136,7 +145,6 @@ const addCardItem = (filteredCard) => {
 
     cardSection.appendChild(element);
   });
-
 };
 
 // navCategory 클릭시 category 활성화

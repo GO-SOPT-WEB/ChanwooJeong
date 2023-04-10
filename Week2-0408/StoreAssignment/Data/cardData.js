@@ -8,7 +8,7 @@ const POKEMON_LIST = [
   },
   {
     name: "피캬츄",
-    tag: ["진화1", "번개", "주인공", "뿅"],
+    tag: ["진화1", "번개", "주인공", "전기충격"],
     img: "https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/002501.png",
     JJim: false,
     evolution: 1,
@@ -41,5 +41,5 @@ const POKEMON_LIST = [
     img: "https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/004001.png",
     JJim: false,
     evolution: 3,
-  },
+  }
 ];
