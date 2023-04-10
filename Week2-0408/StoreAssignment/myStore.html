@@ -26,157 +26,106 @@
     </header>
 
     <main>
-        <nav>
+        <nav class="navMainContainer">
             <p class="category">
                 <input id="all" type="checkbox">
                 <label for="all">전체</label>
             </p>
             <p class="category">
-                <input id="Evolution1" type="checkbox">
-                <label for="Evolution1">진화1</label>
+                <input id="evolution1" type="checkbox">
+                <label for="evolution1">진화1</label>
             </p>
             <p class="category">
-                <input id="Evolution2" type="checkbox">
-                <label for="Evolution2">진화2</label>
+                <input id="evolution2" type="checkbox">
+                <label for="evolution2">진화2</label>
             </p>
             <p class="category">
-                <input id="Evolution3" type="checkbox">
-                <label for="Evolution3">진화3</label>
+                <input id="evolution3" type="checkbox">
+                <label for="evolution3">진화3</label>
             </p>
         </nav>
+
+        <div class="cardMainContainer">
+
+        <section id="tagSection">
+            <ul class="tagUl">
+                <li>전체 <i>&#10008;</i></li>
+                <li>진화1<i>&#10008;</i></li>
+                <li>진화2<i>&#10008;</i></li>
+                <li>진화3<i>&#10008;</i></li>
+            </ul>
+        </section>
+
+
         <section id="cardSection">
-            <div class="card">
+            <article class="card">
                 <div class="card-content">
-                    <div class="pokemonName">
+                    <header class="pokemonName">
                         이상해씨
+                    </header>
+
+                    <div class="tag_zone">
+                        <ul class="tagContainer">
+                            <li class="tag">진화1</li>
+                            <li class="tag">귀여운</li>
+                            <li class="tag">잎사귀</li>
+                            <li class="tag">식물성</li>
+                        </ul>
+                        <button type="button" class="plus_tag">+</button>
                     </div>
-                    <div class="tagContainer">
-                        <span class="tag">진화1</span>
-                        <span class="tag">귀여운</span>
-                        <span class="tag">잎사귀</span>
-                        <span class="tag">식물성</span>
-                        
-                    </div>
+
+
                     <div>
                         <img src="https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000101.png" alt="poketmonImg" />
                     </div>
+
                     <div class="JJim">
-                        <div class="favorite">
+                        <p class="favorite">
                             <input id="poketmon1" class="heart" type="checkbox">
                             <label for="poketmon1" class="label"></label>
-                        </div>
+                        </p>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <div class="pokemonName">
-                        피캬츄
-                    </div>
-                    <div class="tagContainer">
-                        <span class="tag">진화1</span>
-                        <span class="tag">번개</span>
-                        <span class="tag">주인공</span>
-                        <span class="tag">뿅</span>
-                    </div>
-                    <div>
-                        <img src="https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/002501.png" alt="poketmonImg" />
-                    </div>
-                    <div class="JJim">
-                        <div class="favorite">
-                            <input id="poketmon2" class="heart" type="checkbox">
-                            <label for="poketmon2"></label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <div class="pokemonName">
-                        리자몽
-                    </div>
-                    <div class="tagContainer">
-                        <span class="tag">진화3</span>
-                        <span class="tag">불속성</span>
-                        <span class="tag">난폭한</span>
-                    </div>
-                    <div>
-                        <img src="https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000604.png" alt="poketmonImg" />
-                    </div>
-                    <div class="JJim">
-                        <div class="favorite">
-                            <input id="poketmon3" class="heart" type="checkbox">
-                            <label for="poketmon3"></label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <div class="pokemonName">
-                        푸크린
-                    </div>
-                    <div class="tagContainer">
-                        <span class="tag">진화3</span>
-                        <span class="tag">노래방</span>
-                        <span class="tag">잠자는</span>
-                    </div>
-                    <div>
-                        <img src="https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/004001.png" alt="poketmonImg" />
-                    </div>
-                    <div class="JJim">
-                        <div class="favorite">
-                            <input id="poketmon4" class="heart" type="checkbox">
-                            <label for="poketmon4"></label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <div class="pokemonName">
-                        날쌩마
-                    </div>
-                    <div class="tagContainer">
-                        <span class="tag">진화2</span>
-                        <span class="tag">유니콘</span>
-                        <span class="tag">얼룩말</span>
-                    </div>
-                    <div>
-                        <img src="https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/007802.png" alt="poketmonImg" />
-                    </div>
-                    <div class="JJim">
-                        <div class="favorite">
-                            <input id="poketmon5" class="heart" type="checkbox">
-                            <label for="poketmon5"></label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <div class="pokemonName">
-                        어니부기
-                    </div>
-                    <div class="tagContainer">
-                        <span class="tag">진화2</span>
-                        <span class="tag">꼬북이</span>
-                        <span class="tag">물</span>
-                    </div>
-                    <div>
-                        <img src="https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000801.png" alt="poketmonImg" />
-                    </div>
-                    <div class="JJim">
-                        <div class="favorite">
-                            <input id="poketmon6" class="heart" type="checkbox">
-                            <label for="poketmon6"></label>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </article>
 
         </section>
+    </div>
     </main>
+
+    <script src="./Data/cardData.js"></script>
+    <script src="./myStore.js"></script>
 </body>
 
 </html>
+
+<template>
+    <article class="card">
+        <div class="card-content">
+            <header class="pokemonName">
+                이상해씨
+            </header>
+
+            <div class="tag_zone">
+                <ul class="tagContainer">
+                    <li class="tag">진화1</li>
+                    <li class="tag">귀여운</li>
+                    <li class="tag">잎사귀</li>
+                    <li class="tag">식물성</li>
+                </ul>
+                <button type="button" class="plus_tag">+</button>
+            </div>
+
+
+            <div>
+                <img src="https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000101.png" alt="poketmonImg" />
+            </div>
+
+            <div class="JJim">
+                <p class="favorite">
+                    <input id="poketmon1" class="heart" type="checkbox">
+                    <label for="poketmon1" class="label"></label>
+                </p>
+            </div>
+        </div>
+    </article>
+</template>
