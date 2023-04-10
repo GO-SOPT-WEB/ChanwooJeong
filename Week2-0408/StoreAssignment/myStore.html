@@ -28,68 +28,65 @@
     <main>
         <nav class="navMainContainer">
             <p class="category">
-                <input id="all" type="checkbox">
+                <input class="categoryCheckbox" id="all" type="checkbox" checked="on">
                 <label for="all">전체</label>
             </p>
             <p class="category">
-                <input id="evolution1" type="checkbox">
-                <label for="evolution1">진화1</label>
+                <input class="categoryCheckbox" id="evolution1" type="checkbox">
+                <label for="evolution1" style="width: 50rem;">진화1</label>
             </p>
             <p class="category">
-                <input id="evolution2" type="checkbox">
+                <input class="categoryCheckbox" id="evolution2" type="checkbox">
                 <label for="evolution2">진화2</label>
             </p>
             <p class="category">
-                <input id="evolution3" type="checkbox">
+                <input class="categoryCheckbox" id="evolution3" type="checkbox">
                 <label for="evolution3">진화3</label>
             </p>
         </nav>
 
         <div class="cardMainContainer">
 
-        <section id="tagSection">
-            <ul class="tagUl">
-                <li>전체 <i>&#10008;</i></li>
-                <li>진화1<i>&#10008;</i></li>
-                <li>진화2<i>&#10008;</i></li>
-                <li>진화3<i>&#10008;</i></li>
-            </ul>
-        </section>
+            <section id="tagSection">
+                <ul class="tagUl">
+                </ul>
+            </section>
 
 
-        <section id="cardSection">
-            <article class="card">
-                <div class="card-content">
-                    <header class="pokemonName">
-                        이상해씨
-                    </header>
+            <section id="cardSection">
+                <article class="card">
+                    <div class="card-content">
+                        <header class="pokemonName">
+                            이상해씨
+                        </header>
 
-                    <div class="tag_zone">
-                        <ul class="tagContainer">
-                            <li class="tag">진화1</li>
-                            <li class="tag">귀여운</li>
-                            <li class="tag">잎사귀</li>
-                            <li class="tag">식물성</li>
-                        </ul>
-                        <button type="button" class="plus_tag">+</button>
+                        <div class="tag_zone">
+                            <ul class="tagContainer">
+                                <li class="tag">진화1</li>
+                                <li class="tag">귀여운</li>
+                                <li class="tag">잎사귀</li>
+                                <li class="tag">식물성</li>
+                            </ul>
+                            <button type="button" class="plus_tag">+</button>
+                        </div>
+
+
+                        <div>
+                            <img src="https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000101.png"
+                                alt="poketmonImg" />
+                        </div>
+
+                        <div class="JJim">
+                            <p class="favorite">
+                                <input id="poketmon1" class="heart" type="checkbox">
+                                <label for="poketmon1" class="label"></label>
+                            </p>
+                        </div>
                     </div>
+                </article>
 
-
-                    <div>
-                        <img src="https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/000101.png" alt="poketmonImg" />
-                    </div>
-
-                    <div class="JJim">
-                        <p class="favorite">
-                            <input id="poketmon1" class="heart" type="checkbox">
-                            <label for="poketmon1" class="label"></label>
-                        </p>
-                    </div>
-                </div>
-            </article>
-
-        </section>
-    </div>
+            </section>
+        </div>
     </main>
 
     <script src="./Data/cardData.js"></script>
