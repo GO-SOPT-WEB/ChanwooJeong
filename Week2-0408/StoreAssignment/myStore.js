@@ -75,6 +75,13 @@ const addCategorySection = (activeNavArray) => {
   });
 };
 
+const plus_tag = document.getElementsByClassName("plus_tag");
+const plusTags = Array.from(plus_tag);
+plusTags.map((item) => {
+  console.log(item);
+  item.addEventListener("click", () => console.log("hello"));
+});
+
 //필터에 따른 카드 생성 함수
 const addCardItem = (filteredCard) => {
   const cardTemplate = document.querySelector("#temp-card");
@@ -87,9 +94,12 @@ const addCardItem = (filteredCard) => {
     cardSection.removeChild(cardSection.firstChild);
   }
 
-  filteredCard.map((card) => {
+  filteredCard.map((card, i) => {
     const element = div.cloneNode(true);
     const tagContainer = element.querySelectorAll(".tagContainer")[0];
+    const tagModalContainer = element.querySelectorAll(
+      ".tagModal_container"
+    )[0];
 
     card.tag.map((tag) => {
       let li = document.createElement("li");
@@ -98,13 +108,35 @@ const addCardItem = (filteredCard) => {
       tagContainer.appendChild(li);
     });
 
+    card.tag.map((tag) => {
+      let li = document.createElement("li");
+      li.innerHTML = tag;
+      li.className = "tag";
+      tagModalContainer.appendChild(li);
+    });
+
     let html = element.innerHTML;
     html = html.replace("{pokemonName}", card.name);
     html = html.replace("{img}", card.img);
-
+    html = html.replace("{JJimN}", `JJimN${i}`);
+    html = html.replace("{JJimN}", `JJimN${i}`);
     element.innerHTML = html;
+
+    const plusButton = element.querySelector(".plusTag");
+    const tagModal = element.querySelector(".tagModal");
+    const exitIcon = element.querySelector(".exitIcon");
+    
+    plusButton.addEventListener("click", (e) => {
+      tagModal.style.display = "flex";
+    });
+
+    exitIcon.addEventListener("click", (e) => {
+      tagModal.style.display = "none";
+    });
+
     cardSection.appendChild(element);
   });
+
 };
 
 // navCategory 클릭시 category 활성화
