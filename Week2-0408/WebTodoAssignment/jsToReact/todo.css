@@ -1,0 +1,240 @@
+@font-face {
+    font-family: 'Uiyeun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105@1.1/Uiyeun.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    display: flex;
+    width: 450px;
+    height: 100vh;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: "Uiyeun";
+    font-size: 25px;
+}
+
+#mobileContainer {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 450px;
+    height: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background: linear-gradient(#9198e5, #f2c4c4, #f5f3f4);
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    font-size: 2.8rem;
+    color: white;
+}
+
+/* 메인 달력영역 */
+#calendar {
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 0.5rem;
+    height: fit-content;
+    box-shadow: 3px 3px 3px hsl(0deg 0% 0% /0.25);
+    background-color: white;
+}
+
+
+#calendar #calendar-content #day-Week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+#calendar #calendar-content #day-Week .day {
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-items: center;
+    margin: 0 auto;
+}
+
+#calendar #calendar-content #todo-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+#calendar #calendar-content #todo-week .dayBox {
+    width: 2rem;
+    height: 4rem;
+    display: grid;
+    place-items: center;
+    margin: 0 auto;
+}
+
+#calendar #calendar-content #todo-week .dayBox .heart {
+    font-size: 26px;
+    position: relative;
+}
+
+#calendar #calendar-content #todo-week .dayBox .heart .count {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 2px;
+    left: 0;
+    text-align: center;
+    align-items: center;
+    font-size: 20px;
+    color: white;
+}
+
+#todoSection {
+    height: 550px;
+    margin: 2rem 1.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    overflow-y: scroll;
+}
+
+#todoSection::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+}
+
+#todoSection::-webkit-scrollbar {
+    width: 6px;
+}
+
+#todoSection::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+#todoSection::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: #cdcdf4;
+}
+
+#todoSection .category .category-title {
+    width: fit-content;
+    height: fit-content;
+    padding: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+
+}
+
+/* 카테고리별 색지정 */
+.yellow {
+    background-color: rgb(248, 248, 130);
+    box-shadow: 5px 5px 10px -5px yellowgreen;
+}
+
+.blue {
+    background-color: rgb(147, 147, 255);
+    box-shadow: 5px 5px 10px -5px rgb(60, 33, 232);
+}
+
+.green {
+    background-color: rgb(57, 241, 72);
+    box-shadow: 5px 5px 10px -5px rgb(43, 143, 58);
+}
+
+.pink {
+    background-color: rgb(246, 115, 209);
+    box-shadow: 5px 5px 10px -5px rgb(105, 12, 108);
+}
+
+.aqua {
+    background-color: rgb(121, 223, 251);
+    box-shadow: 5px 5px 10px -5px rgb(6, 54, 67);
+}
+
+main #todoSection .category .category-title .title {
+    padding: 0.2rem;
+    color: black;
+
+}
+
+/* 메인 투두리스트 영역 */
+#todoSection .category {
+    min-width: 40%;
+}
+
+#todoSection .category .todo {
+    padding-top: 0.4rem;
+    color: black;
+    font-size: medium;
+    display: flex;
+    flex-direction: row;
+}
+
+#todoSection .category .todo label {
+    font-size: 1.5rem;
+}
+
+#todoSection .category .todo .heart {
+    display: none;
+}
+
+#todoSection .category .todo label::before {
+    content: '🤍';
+    font-size: 1rem;
+    margin-right: 0.2rem;
+    display: inline-block;
+}
+
+#todoSection .category .todo .heart:hover+label::before {
+    content: '❤️';
+    font-size: 1rem;
+    margin-right: 0.2rem;
+    cursor: pointer;
+}
+
+#todoSection .category .todo .heart:checked+label::before {
+    content: '❤️';
+    font-size: 1rem;
+    margin-right: 0.2rem;
+}
+
+#todoSection .category .category-title button {
+    border-radius: 100%;
+    border: none;
+    color: white;
+    background-color: slateblue;
+}
+
+
+/* footer css */
+footer {
+    width: 450px;
+    box-sizing: border-box;
+    width: 100%;
+    position: absolute;
+    bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+footer button {
+    width: 4rem;
+    margin: 0.3rem;
+    padding: 0.3rem;
+    border-radius: 18%;
+    font-family: "Uiyeun";
+    font-size: larger;
+    font-weight: 500;
+    border: none;
+    background-color: #9198e5;
+    box-shadow: 3px 3px purple;
+
+    cursor: pointer;
+}
+
+footer button img {
+    width: 20px;
+}
