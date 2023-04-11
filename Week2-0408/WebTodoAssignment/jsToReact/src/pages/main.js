@@ -52,7 +52,7 @@ function MainPage($container) {
                         </li>
                         <li class="dayBox">
                             <div class="heart">💜
-                                <div class="count">2</div>
+                                <div class="count chageNum">{leftTodo}</div>
                             </div>
                             <div>1</div>
                         </li>
@@ -79,6 +79,11 @@ function MainPage($container) {
                 <div>MY</div>
             </button>
         </footer>
+        <div class="addTodoModal">
+            <div class="addTodoModalContainer">
+                <div class="exitIcon">&#10008;</div>
+            </div>
+        </div>
     </div>
 
     <template id="temp-todo" type="text/template">
