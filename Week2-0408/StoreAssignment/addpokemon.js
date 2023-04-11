@@ -32,6 +32,12 @@ registButton.addEventListener("click", () => {
   const hashTagArray = hashTag.split(",");
   const evolution = document.getElementById("pokemon-evolution").value;
 
+  //유효성 체크
+  if(!pokemonName) return alert("포켓몬이름을 채워주세요!")
+  if(!hashTag) return alert("해시태그를 채워주세요!")
+  if(!pokemonPhotoInput.value) return alert("이미지를 추가해주세요!")
+
+
   const pokemonObj = {
     name: pokemonName,
     tag: hashTagArray,

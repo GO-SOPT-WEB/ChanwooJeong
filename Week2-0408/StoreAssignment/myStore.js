@@ -3,22 +3,6 @@ const categoryArray = Array.from(navCategorys);
 
 const activeNav = ["all"];
 
-//처음 로딩시 전체 카드 노출
-window.onload = function () {
-
-  //포켓몬리스트Data 동기화 (로컬스토리지 반영)
-  for (var i = 0; i < localStorage.length; i++) {
-    var key = localStorage.key(i);
-    var newPokemon = localStorage.getItem(key);
-    const pokemonObj = JSON.parse(newPokemon);
-    POKEMON_LIST.push(pokemonObj);
-  }
-
-  addCategorySection(activeNav);
-  const filteredCard = filterCard(activeNav);
-  addCardItem(filteredCard);
-};
-
 // 필터에 맞는 카드 배열에 담아서 return 하는 함수
 const filterCard = (activeNav) => {
   let filterdCard = [];
@@ -37,7 +21,7 @@ const filterCard = (activeNav) => {
 };
 
 // navFilterSection 에 필터종류 노출 및 삭제
-const addCategorySection = (activeNavArray) => {
+const addFilteredSection = (activeNavArray) => {
   const tagUl = document.querySelectorAll(".tagUl")[0];
 
   const createNavTagItem = (name) => {
@@ -68,7 +52,7 @@ const addCategorySection = (activeNavArray) => {
       activeNav.splice(index, 1);
       const checkbox = document.querySelectorAll(`#${name}`)[0];
       checkbox.checked = !checkbox.checked;
-      addCategorySection(activeNav);
+      addFilteredSection(activeNav);
       const filteredCard = filterCard(activeNav);
       addCardItem(filteredCard);
     });
@@ -83,13 +67,6 @@ const addCategorySection = (activeNavArray) => {
     tagUl.appendChild(createNavTagItem(category));
   });
 };
-
-const plus_tag = document.getElementsByClassName("plus_tag");
-const plusTags = Array.from(plus_tag);
-plusTags.map((item) => {
-  console.log(item);
-  item.addEventListener("click", () => console.log("hello"));
-});
 
 //필터에 따른 카드 생성 함수
 const addCardItem = (filteredCard) => {
@@ -127,6 +104,7 @@ const addCardItem = (filteredCard) => {
     let html = element.innerHTML;
     html = html.replace("{pokemonName}", card.name);
     html = html.replace("{img}", card.img);
+    html = html.replace("{poketmonImg}", `${card.name} 이미지`);
     html = html.replace("{JJimN}", `JJimN${i}`);
     html = html.replace("{JJimN}", `JJimN${i}`);
     element.innerHTML = html;
@@ -160,8 +138,24 @@ categoryArray.map((navCatgory) => {
       activeNav.splice(index, 1);
     }
 
-    addCategorySection(activeNav);
+    addFilteredSection(activeNav);
     const filteredCard = filterCard(activeNav);
     addCardItem(filteredCard);
   });
 });
+
+
+//처음 로딩시 전체 카드 노출 및 포켓몬 DATA 동기화
+window.onload = function () {
+  //포켓몬리스트Data 동기화 (로컬스토리지 반영)
+  for (var i = 0; i < localStorage.length; i++) {
+    var key = localStorage.key(i);
+    var newPokemon = localStorage.getItem(key);
+    const pokemonObj = JSON.parse(newPokemon);
+    POKEMON_LIST.push(pokemonObj);
+  }
+
+  addFilteredSection(activeNav);
+  const filteredCard = filterCard(activeNav);
+  addCardItem(filteredCard);
+};
