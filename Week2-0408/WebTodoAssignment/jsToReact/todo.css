@@ -228,7 +228,7 @@ main #todoSection .category .category-title .title {
 }
 
 .addTodoModal {
-    display: block;
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
