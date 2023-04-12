@@ -1,4 +1,5 @@
 import TODO_DATA from "../Data/todoData";
+import localStorageApi from "../Api/localstorageApi";
 
 // TODO_DATA 의 남은 할일(finsished = false) 갯수 세는 함수
 const countFinishedTodo = () => {
@@ -6,7 +7,9 @@ const countFinishedTodo = () => {
 
   let haveTodo = 0;
 
-  TODO_DATA.forEach((todoItem) => {
+  const localTodoData = localStorageApi.getItem("todoData");
+  const paselocalData = JSON.parse(localTodoData);
+  paselocalData.forEach((todoItem) => {
     for (let key in todoItem) {
       const value = todoItem[key];
       value.todolist.forEach((todoSet) => {
@@ -18,7 +21,7 @@ const countFinishedTodo = () => {
 };
 
 //template 과 todoData 를 넣으면 화면에 카테고리와 todo를 생성 + 모달연결 해주는 함수
-const addCategoryTodo = () => {
+const addCategoryTodo = (todoDataArr) => {
   const todoTemplate = document.querySelector("#temp-todo");
   const todoSection = document.querySelector("#todoSection");
 
@@ -30,7 +33,7 @@ const addCategoryTodo = () => {
   div.innerHTML = todoTemplate.innerHTML;
 
   // todoData배열을 순환하며 복사한 템플릿에 할일리스트와 카테고리이름을 생성
-  TODO_DATA.forEach((todoItem) => {
+  todoDataArr.forEach((todoItem) => {
     for (let key in todoItem) {
       const value = todoItem[key];
       const element = div.cloneNode(true);
@@ -70,9 +73,12 @@ const addCategoryTodo = () => {
 
           if (isChecked) {
             todoItem[key].todolist[retrunIndex].finished = true;
+            localStorageApi.setItem("todoData", JSON.stringify(todoDataArr));
+
             countFinishedTodo();
           } else {
             todoItem[key].todolist[retrunIndex].finished = false;
+            localStorageApi.setItem("todoData", JSON.stringify(todoDataArr));
             countFinishedTodo();
           }
         });
@@ -102,18 +108,30 @@ const addCategoryTodo = () => {
 };
 
 const addTodo = (category, newTodo) => {
-  const categoryTodoListObj = TODO_DATA.filter(
-    (todoItem) => todoItem[category]
-  )[0];
-  const categoryTodoList = categoryTodoListObj[category]["todolist"];
-  const retrunIndex = categoryTodoList.findIndex((data) => {
-    return data.todo === newTodo;
+  const localData = localStorageApi.getItem("todoData");
+  const paselocalData = JSON.parse(localData);
+
+  paselocalData.forEach((todoItem, i) => {
+    if (todoItem[category]) {
+      const retrunIndex = paselocalData[i][category]["todolist"].findIndex(
+        (data) => {
+          return data.todo === newTodo;
+        }
+      );
+
+      if (retrunIndex !== -1) return alert("중복된 할일이 있습니다!");
+      paselocalData[i][category]["todolist"].push({
+        todo: newTodo,
+        finished: false,
+      });
+    }
   });
 
-  if (retrunIndex !== -1) return alert("중복된 할일이 있습니다!");
-  categoryTodoList.push({ todo: newTodo, finished: false });
+  localStorageApi.setItem("todoData", JSON.stringify(paselocalData));
+  var newlocalData = localStorage.getItem("todoData");
+  const localDataTodo = JSON.parse(newlocalData);
 
-  addCategoryTodo();
+  addCategoryTodo(localDataTodo);
   countFinishedTodo();
 };
 
@@ -138,8 +156,16 @@ const createModal = () => {
 
 //모든 DOM이 그려지면 진행되는 코드
 window.onload = function () {
-  //Data를 바탕으로 카테고리+할일세트 생성
-  addCategoryTodo();
+  // 로컬스토리지 확인후 값이 없다면 기존의 값을 로컬에 추가한후 투두리스트 생성 있다면 있는 데이터 가져오기
+  if (!localStorageApi.getItem("todoData")) {
+    localStorageApi.setItem("todoData", JSON.stringify(TODO_DATA));
+    addCategoryTodo(TODO_DATA);
+  } else {
+    const localData = localStorageApi.getItem("todoData");
+    const paselocalData = JSON.parse(localData);
+    addCategoryTodo(paselocalData);
+  }
+
   //달력에 해야하는 할일 갯수를 카운트해서 숫자로 생성
   countFinishedTodo();
   //모달에서 할일을 추가할때 사용되는 로직 생성
