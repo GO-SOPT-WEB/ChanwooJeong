@@ -83,7 +83,7 @@ function MainPage($container) {
             <div class="addTodoModalContainer">
                 <div class="exitIcon">&#10008;</div>
                 <h2 id="categoryName">categoryName</h2>
-                <input id="addTodoInput" placeholder="할일을 적어주세요🍀" autofocus />
+                <input id="addTodoInput" placeholder="할일을 적어주세요🍀"  />
                 <button id="addTodoBtn" type="submit">추가하기</button>
             </div>
         </div>
