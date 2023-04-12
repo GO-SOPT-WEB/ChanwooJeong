@@ -27,6 +27,17 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
     line-height: 1;
+
+    display: flex;
+
+    width: 450px;
+    height: 100vh;
+
+    margin: 0 auto;
+
+
+    font-family: "Uiyeun";
+    
 }
 ol, ul {
     list-style: none;

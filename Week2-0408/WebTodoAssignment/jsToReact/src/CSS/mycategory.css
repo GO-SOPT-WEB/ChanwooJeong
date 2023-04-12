@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'Uiyeun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105@1.1/Uiyeun.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#changeCategoryContainer {
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+    width: 450px;
+    height: 100%;
+    margin: 0 auto;
+
+    background: linear-gradient(#9198e5, #f2c4c4, #f5f3f4);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    
+    width: 100%;
+    padding: 1rem;
+    font-size: 2.3rem;
+    color: white;
+}
+
+.dragDropcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dragElement {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 15rem;
+    height: 70px;
+    
+    margin: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: move;
+    font-size: 30px;
+    background: #eaeaea4f;
+}
+
+/* 카테고리별 색지정 */
+.yellow {
+    background-color: rgb(248, 248, 130);
+    box-shadow: 5px 5px 10px -5px yellowgreen;
+}
+
+.blue {
+    background-color: rgb(147, 147, 255);
+    box-shadow: 5px 5px 10px -5px rgb(60, 33, 232);
+}
+
+.green {
+    background-color: rgb(57, 241, 72);
+    box-shadow: 5px 5px 10px -5px rgb(43, 143, 58);
+}
+
+.pink {
+    background-color: rgb(246, 115, 209);
+    box-shadow: 5px 5px 10px -5px rgb(105, 12, 108);
+}
+
+.aqua {
+    background-color: rgb(121, 223, 251);
+    box-shadow: 5px 5px 10px -5px rgb(6, 54, 67);
+}
