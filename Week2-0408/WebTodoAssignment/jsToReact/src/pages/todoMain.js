@@ -1,4 +1,6 @@
-function MainPage($container) {
+import "../JSfile/todo";
+
+function TodoMainPage($container) {
   this.$container = $container;
 
   this.render = () => {
@@ -83,7 +85,7 @@ function MainPage($container) {
             <div class="addTodoModalContainer">
                 <div class="exitIcon">&#10008;</div>
                 <h2 id="categoryName">categoryName</h2>
-                <input id="addTodoInput" placeholder="할일을 적어주세요🍀"  />
+                <input id="addTodoInput" placeholder="할일을 적어주세요🍀"   />
                 <button id="addTodoBtn" type="submit">추가하기</button>
             </div>
         </div>
@@ -105,4 +107,4 @@ function MainPage($container) {
   this.render();
 }
 
-export default MainPage;
+export default TodoMainPage;

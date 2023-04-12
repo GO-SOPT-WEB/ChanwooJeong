@@ -1,20 +1,4 @@
-import TODO_DATA from "./Data/todoData";
-
-const addTodo = (category, newTodo) => {
-  const categoryTodoListObj = TODO_DATA.filter(
-    (todoItem) => todoItem[category]
-  )[0];
-  const categoryTodoList = categoryTodoListObj[category]["todolist"];
-  const retrunIndex = categoryTodoList.findIndex((data) => {
-    return data.todo === newTodo;
-  });
-
-  if (retrunIndex !== -1) return alert("중복된 할일이 있습니다!");
-  categoryTodoList.push({ todo: newTodo, finished: false });
-
-  addCategoryTodo();
-  countFinishedTodo();
-};
+import TODO_DATA from "../Data/todoData";
 
 // TODO_DATA 의 남은 할일(finsished = false) 갯수 세는 함수
 const countFinishedTodo = () => {
@@ -94,7 +78,7 @@ const addCategoryTodo = () => {
         });
       });
 
-      //할일 추가하기 버튼 클릭시 모달 생성
+      //할일 추가하기 버튼 클릭시 모달 창 오픈
       const plusButton = element.querySelector(".plusButton");
 
       const addTodoModal = document.querySelector(".addTodoModal");
@@ -104,6 +88,8 @@ const addCategoryTodo = () => {
       plusButton.addEventListener("click", (e) => {
         categoryName.innerHTML = key;
         addTodoModal.style.display = "flex";
+        const addTodoInput = document.querySelector("#addTodoInput");
+        addTodoInput.focus();
       });
 
       exitIcon.addEventListener("click", (e) => {
@@ -113,6 +99,22 @@ const addCategoryTodo = () => {
       todoSection.appendChild(element);
     }
   });
+};
+
+const addTodo = (category, newTodo) => {
+  const categoryTodoListObj = TODO_DATA.filter(
+    (todoItem) => todoItem[category]
+  )[0];
+  const categoryTodoList = categoryTodoListObj[category]["todolist"];
+  const retrunIndex = categoryTodoList.findIndex((data) => {
+    return data.todo === newTodo;
+  });
+
+  if (retrunIndex !== -1) return alert("중복된 할일이 있습니다!");
+  categoryTodoList.push({ todo: newTodo, finished: false });
+
+  addCategoryTodo();
+  countFinishedTodo();
 };
 
 const createModal = () => {
@@ -141,5 +143,5 @@ window.onload = function () {
   //달력에 해야하는 할일 갯수를 카운트해서 숫자로 생성
   countFinishedTodo();
   //모달에서 할일을 추가할때 사용되는 로직 생성
-  createModal()
+  createModal();
 };
