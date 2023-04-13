@@ -1,5 +1,5 @@
 import "../JSfile/todo";
-import "../CSS/todo.css"
+import "../CSS/todo.css";
 
 function TodoMainPage($container) {
   this.$container = $container;
@@ -90,6 +90,7 @@ function TodoMainPage($container) {
                 <button id="addTodoBtn" type="submit">추가하기</button>
             </div>
         </div>
+       
     </div>
 
     <template id="temp-todo" type="text/template">

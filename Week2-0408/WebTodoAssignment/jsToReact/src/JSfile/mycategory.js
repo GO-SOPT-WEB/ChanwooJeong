@@ -1,7 +1,9 @@
 // import TODO_DATA from "../Data/todoData";
+// import { urlApi } from "../Api/Api";
 
 // window.onload = function () {
-
+//   const url = urlApi.getUrl();
+//   if (url !== "myCategory") return;
 //   const dragDropcontainer = document.querySelectorAll(".dragDropcontainer")[0];
 
 //   TODO_DATA.forEach((item) => {
@@ -32,9 +34,9 @@
 
 //   dragDropcontainer.addEventListener("drop", (e) => {
 //     e.preventDefault();
-//     const dragItemIndex = document.querySelectorAll(".dragElement")
+//     const dragItemIndex = document.querySelectorAll(".dragElement");
 //     const dragItemIndexArr = Array.from(dragItemIndex);
-//     console.log(dragItemIndexArr)
-//     dragItemIndexArr.map((item)=>console.log(item.innerHTML))
+//     console.log(dragItemIndexArr);
+//     dragItemIndexArr.map((item) => console.log(item.innerHTML));
 //   });
 // };
