@@ -5,12 +5,3 @@ export const localStorageApi = {
   clearAll: () => localStorage.clear(),
 };
 
-export const urlApi = {
-  getUrl: () => {
-    const currentURL = window.location.href;
-    const segments = currentURL.split("/");
-    const desiredValue = segments[segments.length - 1];
-    return desiredValue
-  },
-};
-

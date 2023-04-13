@@ -1,7 +1,6 @@
 import "../CSS/mycategory.css";
 import "../JSfile/mycategory";
-import TODO_DATA from "../Data/todoData";
-import { localStorageApi, urlApi } from "../Api/Api";
+import { localStorageApi } from "../Api/Api";
 
 function MyCategory($container) {
   this.$container = $container;
@@ -58,12 +57,9 @@ function MyCategory($container) {
       <div id="changeCategoryContainer">
         <header>
             <h1>❤️Drag Todo Category Index❤️</h1>
-
-            
         </header>
 
         <div class="dragDropcontainer">
-        
         </div>
         
       </div>
