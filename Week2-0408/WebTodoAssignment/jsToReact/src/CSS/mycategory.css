@@ -75,3 +75,35 @@ header {
     background-color: rgb(121, 223, 251);
     box-shadow: 5px 5px 10px -5px rgb(6, 54, 67);
 }
+
+/* footer css */
+footer {
+    display: flex;
+    justify-content: center;
+
+    position: absolute;
+    bottom: 1rem;
+
+    width: 100%;
+}
+
+footer button {
+    width: 4rem;
+    margin: 0.3rem;
+    padding: 1rem;
+
+    border: none;
+    background-color: #9198e5;
+    box-shadow: 3px 3px purple;
+    border-radius: 18%;
+
+    font-family: "Uiyeun";
+    font-size: larger;
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+footer button img {
+    width: 1.25rem;
+}
