@@ -7,9 +7,9 @@ const countFinishedTodo = () => {
 
   let haveTodo = 0;
 
-  const localTodoData = localStorageApi.getItem("todoData");
-  const paselocalData = JSON.parse(localTodoData);
-  paselocalData.forEach((todoItem) => {
+  const parsedlocalData = localStorageApi.getItemReturnParse("todoData")
+
+  parsedlocalData.forEach((todoItem) => {
     for (let key in todoItem) {
       const value = todoItem[key];
       value.todolist.forEach((todoSet) => {
@@ -108,30 +108,28 @@ const addCategoryTodo = (todoDataArr) => {
 };
 
 const addTodo = (category, newTodo) => {
-  const localData = localStorageApi.getItem("todoData");
-  const paselocalData = JSON.parse(localData);
+  const parsedlocalData = localStorageApi.getItemReturnParse("todoData")
 
-  paselocalData.forEach((todoItem, i) => {
+  parsedlocalData.forEach((todoItem, i) => {
     if (todoItem[category]) {
-      const retrunIndex = paselocalData[i][category]["todolist"].findIndex(
+      const retrunIndex = parsedlocalData[i][category]["todolist"].findIndex(
         (data) => {
           return data.todo === newTodo;
         }
       );
 
       if (retrunIndex !== -1) return alert("중복된 할일이 있습니다!");
-      paselocalData[i][category]["todolist"].push({
+      parsedlocalData[i][category]["todolist"].push({
         todo: newTodo,
         finished: false,
       });
     }
   });
 
-  localStorageApi.setItem("todoData", JSON.stringify(paselocalData));
-  var newlocalData = localStorage.getItem("todoData");
-  const localDataTodo = JSON.parse(newlocalData);
+  localStorageApi.setItem("todoData", JSON.stringify(parsedlocalData));
+  const newParsedlocalData = localStorageApi.getItemReturnParse("todoData")
 
-  addCategoryTodo(localDataTodo);
+  addCategoryTodo(newParsedlocalData);
   countFinishedTodo();
 };
 
@@ -161,9 +159,8 @@ window.onload = function () {
     localStorageApi.setItem("todoData", JSON.stringify(TODO_DATA));
     addCategoryTodo(TODO_DATA);
   } else {
-    const localData = localStorageApi.getItem("todoData");
-    const paselocalData = JSON.parse(localData);
-    addCategoryTodo(paselocalData);
+    const parsedlocalData = localStorageApi.getItemReturnParse("todoData")
+    addCategoryTodo(parsedlocalData);
   }
 
   //달력에 해야하는 할일 갯수를 카운트해서 숫자로 생성

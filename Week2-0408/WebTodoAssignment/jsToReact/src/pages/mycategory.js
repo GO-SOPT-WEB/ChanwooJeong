@@ -6,12 +6,11 @@ function MyCategory($container) {
   this.$container = $container;
 
   window.onload = function () {
-    const localData = localStorageApi.getItem("todoData");
-    const paselocalData = JSON.parse(localData);
+    const parsedlocalData = localStorageApi.getItemReturnParse("todoData");
     const dragDropcontainer =
       document.querySelectorAll(".dragDropcontainer")[0];
 
-    paselocalData.forEach((item) => {
+    parsedlocalData.forEach((item) => {
       for (const key in item) {
         const categoryDiv = document.createElement("div");
         categoryDiv.classList.add("dragElement");
@@ -43,7 +42,7 @@ function MyCategory($container) {
       const dragItemIndexArr = Array.from(dragItemIndex);
 
       const newOrederedTodoArr = dragItemIndexArr.map((item) => {
-        return paselocalData.filter((category) => {
+        return parsedlocalData.filter((category) => {
           return category[item.innerHTML];
         })[0];
       });
