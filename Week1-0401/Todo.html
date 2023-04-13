@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+
+    <!-- css 기본요소 reset -->
+    <link rel="stylesheet" href="reset.css">
+    <!-- MYStore css import -->
+    <link rel="stylesheet" href="Todo.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</head>
+
+<body>
+    <Container id="Mobile">
+        <header>
+            <h1>❤️WEB TODO MATE❤️</h1>
+        </header>
+        <main>
+            <section id="calendar">
+                <div id="calendar-content">
+                    <ul id="day-Week">
+                        <li class="day">월</li>
+                        <li class="day">화</li>
+                        <li class="day">수</li>
+                        <li class="day">목</li>
+                        <li class="day">금</li>
+                        <li class="day">토</li>
+                        <li class="day">일</li>
+                    </ul>
+                    <ul id="todo-week">
+                        <li class="dayBox">
+                            <div class="heart">❤️
+                                <div class="count">5</div>
+                            </div>
+                            <div>27</div>
+                        </li>
+                        <li class="dayBox">
+                            <div class="heart">❤️
+                                <div class="count">3</div>
+                            </div>
+                            <div>28</div>
+                        </li>
+                        <li class="dayBox">
+                            <div class="heart">❤️
+                                <div class="count">7</div>
+                            </div>
+                            <div>29</div>
+                        </li>
+                        <li class="dayBox">
+                            <div class="heart">❤️
+                                <div class="count">5</div>
+                            </div>
+                            <div>30</div>
+                        </li>
+                        <li class="dayBox">
+                            <div class="heart">❤️
+                                <div class="count">9</div>
+                            </div>
+                            <div>31</div>
+                        </li>
+                        <li class="dayBox">
+                            <div class="heart">💜
+                                <div class="count">2</div>
+                            </div>
+                            <div>1</div>
+                        </li>
+                        <li class="dayBox">
+                            <div class="heart">❤️
+                                <div class="count">3</div>
+                            </div>
+                            <div>2</div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section id="todolist">
+                <div class="category">
+                    <h2 class="category-title yellow">
+                        <div class="title">TodayTodo</div>
+                        <button type="button">+</button>
+                    </h2>
+                    <div class="todo">
+                        <input id="early" class="heart" type="checkbox">
+                        <label for="early">일찍일어나기</label>
+                    </div>
+                    <div class="todo">
+                        <input id="project" class="heart" type="checkbox">
+                        <label for="project">과제를 완성하는</label>
+                    </div>
+                    <div class="todo">
+                        <input id="night" class="heart" type="checkbox">
+                        <label for="night">옴나리송송개나맆던 밤오늘하루</label>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <h2 class="category-title blue">
+                        <div class="title">개발은재밌어</div>
+                        <button type="button">+</button>
+                    </h2>
+                    <div class="todo">
+                        <input id="fininsh" class="heart" type="checkbox">
+                        <label for="fininsh">코딩과제 마무리하기</label>
+                    </div>
+                    <div class="todo">
+                        <input id="lan" class="heart" type="checkbox">
+                        <label for="lan">Html Css javascript 타스 </label>
+                    </div>
+                    <div class="todo">
+                        <input id="state" class="heart" type="checkbox">
+                        <label for="state">리액트 , 리덕스 , 상태관리</label>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <h2 class="category-title green">
+                        <div class="title">감성하루할일</div>
+                        <button type="button">+</button>
+                    </h2>
+                    <div class="todo">
+                        <input id="ya" class="heart" type="checkbox">
+                        <label for="ya">야식은 역시 치킨이쥐</label>
+                    </div>
+                    <div class="todo">
+                        <input id="black" class="heart" type="checkbox">
+                        <label for="black">검은 화면 빼곡한 코드 하루가 지나면 남아있나</label>
+                    </div>
+                    <div class="todo">
+                        <input id="seminar" class="heart" type="checkbox">
+                        <label for="seminar">옴나리송송개나맆던 밤오늘하루 저기저달 웹 팟 세미나</label>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <h2 class="category-title pink">
+                        <div class="title">기대되는 솝활동</div>
+                        <button type="button">+</button>
+                    </h2>
+                    <div class="todo">
+                        <input id="sob" class="heart" type="checkbox">
+                        <label for="sob">솝커톤</label>
+                    </div>
+                    <div class="todo">
+                        <input id="mt" class="heart" type="checkbox">
+                        <label for="mt">웹엠티</label>
+                    </div>
+                    <div class="todo">
+                        <input id="Jam" class="heart" type="checkbox">
+                        <label for="Jam">앱잼</label>
+                    </div>
+                </div>
+                
+                <div class="category">
+                    <h2 class="category-title aqua">
+                        <div class="title">얻어가야하는 일</div>
+                        <button type="button">+</button>
+                    </h2>
+                    <div class="todo">
+                        <input id="deploy" class="heart" type="checkbox">
+                        <label for="deploy">프로젝트 무조건 </label>
+                    </div>
+                    <div class="todo">
+                        <input id="diet" class="heart" type="checkbox">
+                        <label for="diet">술조그만 먹고</label>
+                    </div>
+                    <div class="todo">
+                        <input id="samso" class="heart" type="checkbox">
+                        <label for="samso">삼겹살에 쏘주는 진리지⏰</label>
+                    </div>
+                    <div class="todo">
+                        <input id="mogako" class="heart" type="checkbox">
+                        <label for="mogako">모각코🔥</label>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+        <footer>
+            <button type="button">
+                <img src="https://cdn.icon-icons.com/icons2/1659/PNG/512/3844435-home-house_110321.png" alt="calendar"/>
+                <div>달력</div>
+            </button>
+            <button type="button">
+                <img src="https://cdn-icons-png.flaticon.com/512/880/880590.png" alt="My"/>
+                <div>MY</div>
+            </button>
+        </footer>
+    </Container>
+</body>
+
+</html>
