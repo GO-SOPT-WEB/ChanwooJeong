@@ -1,18 +1,18 @@
 import "../CSS/mycategory.css";
 import "../JSfile/mycategory";
 import TODO_DATA from "../Data/todoData";
-import { urlApi } from "../Api/Api";
+import { localStorageApi, urlApi } from "../Api/Api";
 
 function MyCategory($container) {
   this.$container = $container;
 
   window.onload = function () {
-    const url = urlApi.getUrl();
-    if (url !== "myCategory") return;
+    const localData = localStorageApi.getItem("todoData");
+    const paselocalData = JSON.parse(localData);
     const dragDropcontainer =
       document.querySelectorAll(".dragDropcontainer")[0];
 
-    TODO_DATA.forEach((item) => {
+    paselocalData.forEach((item) => {
       for (const key in item) {
         const categoryDiv = document.createElement("div");
         categoryDiv.classList.add("dragElement");
@@ -42,8 +42,14 @@ function MyCategory($container) {
       e.preventDefault();
       const dragItemIndex = document.querySelectorAll(".dragElement");
       const dragItemIndexArr = Array.from(dragItemIndex);
-      console.log(dragItemIndexArr);
-      dragItemIndexArr.map((item) => console.log(item.innerHTML));
+
+      const newOrederedTodoArr = dragItemIndexArr.map((item) => {
+        return paselocalData.filter((category) => {
+          return category[item.innerHTML];
+        })[0];
+      });
+
+      localStorageApi.setItem("todoData", JSON.stringify(newOrederedTodoArr));
     });
   };
 
