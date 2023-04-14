@@ -1,0 +1,436 @@
+@font-face {
+    font-family: 'NeoDunggeunmoPro-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* body CSS */
+body {
+    font-family: 'NeoDunggeunmoPro-Regular';
+    background-color: rgb(252, 233, 233);
+
+}
+
+/* HeaderBar 관련 CSS */
+body>header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+
+    width: 100%;
+
+    padding: 1.25rem;
+
+    background-color: #f8f8f8;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.logo {
+    font-size: 1.75rem;
+    color: #333;
+}
+
+#hamburger {
+    display: none;
+    cursor: pointer;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: bold;
+    user-select: none;
+}
+
+header aside {
+    display: flex;
+    flex-direction: row;
+
+}
+
+header aside a {
+    margin: 0 0.625rem;
+}
+
+header aside a:hover {
+    color: plum;
+}
+
+@media (max-width: 1000px) {
+    body>header {
+        padding: 1.25rem;
+    }
+
+    header>aside {
+        display: none;
+    }
+
+    header>aside a {
+        margin: 1rem;
+    }
+
+    #hamburger {
+        display: block;
+    }
+
+    #hamburger:hover+aside,
+    aside:hover {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        height: 100vh;
+        width: 15.625rem;
+        top: 0;
+        right: 0;
+        background-color: #f8f8f8;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        padding: 1rem;
+    }
+}
+
+/* Main파트 CSS */
+
+/* 메인파트1 : nav */
+main {
+    display: flex;
+    flex-direction: row;
+    margin: 0.625rem;
+    margin-top: 5rem;
+    padding: 0.625rem;
+}
+
+main nav {
+    display: flex;
+    flex-direction: column;
+
+    position: sticky;
+    top: 5rem;
+
+    width: 9.375rem;
+    height: fit-content;
+
+    background-color: #f1f1f1;
+    border: 2px solid #ccc;
+    border-radius: 0.625rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+main nav .category {
+    display: flex;
+    flex-direction: row;
+
+    margin: 0.3rem;
+    padding: 0.6rem;
+    border-radius: 10%;
+}
+
+main nav .category>input {
+    cursor: pointer;
+}
+
+main nav .category>label {
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+}
+
+main nav .category:hover {
+    background-color: palevioletred;
+    color: white;
+}
+
+/* 메인파트2 : cardSection */
+#cardSection {
+    display: grid;
+    grid-template-columns: repeat(6, 250px);
+    grid-auto-rows: 18.75rem;
+    grid-gap: 1.25rem;
+
+    width: 100%;
+    height: 100%;
+
+}
+
+@media screen and (max-width: 1800px) {
+    #cardSection {
+        grid-template-columns: repeat(5, 250px);
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    #cardSection {
+        grid-template-columns: repeat(4, 250px);
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    #cardSection {
+        grid-template-columns: repeat(3, 250px);
+    }
+}
+
+@media screen and (max-width:1100px) {
+    #cardSection {
+        grid-template-columns: repeat(2, 250px);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #cardSection {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0 150px;
+    }
+}
+
+/* 메인파트3 : cardSection > Card CSS */
+
+#cardSection .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+    border-radius: 5px;
+
+    transform-style: preserve-3d;
+    background-color: white;
+    animation: downUp 1s;
+    z-index: 0;
+}
+
+@keyframes downUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 30%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateZ(0);
+    }
+}
+
+#cardSection .card::before {
+    display: block;
+
+    position: absolute;
+    content: ' ';
+
+    width: 160px;
+    height: 500px;
+
+    background: linear-gradient(90deg, transparent, purple, transparent);
+    animation: rotation_border 5000ms infinite linear;
+    z-index: -1;
+}
+
+#cardSection .card .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 98%;
+    height: 98%;
+
+    padding: 1rem;
+
+    border: 1px solid purple;
+    border-radius: 5px;
+    background-color: white;
+    z-index: 1;
+}
+
+
+#cardSection .card .card-content img {
+    width: 9.375rem;
+}
+
+@keyframes rotation_border {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    0% {
+        transform: rotateZ(360deg);
+    }
+}
+
+#cardSection .card .card-content .tag_zone {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    width: 100%;
+    height: 1rem;
+    padding-left: 1rem;
+}
+
+.tag_zone button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    width: 1rem;
+    height: 1rem;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: yellow;
+    color: black;
+}
+
+.tag_zone button:hover {
+    background-color: rebeccapurple;
+    color: white;
+    cursor: pointer;
+}
+
+.tagContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    width: 10rem;
+    height: 1rem;
+
+    text-align: center;
+    overflow: hidden;
+}
+
+.tagContainer .tag::before {
+    content: "#";
+}
+
+.tagContainer .tag {
+    margin-right: 0.3rem;
+}
+
+.pokemonName {
+    font-size: 1.563rem;
+}
+
+.JJim {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 1.875rem;
+}
+
+.favorite {
+    width: fit-content;
+    height: fit-content;
+    padding: 0.313rem;
+}
+
+.heart {
+    display: none;
+}
+
+#cardSection label::before {
+    display: block;
+    content: '🤍';
+}
+
+#cardSection .heart:hover+label::before {
+    content: '❤️';
+    cursor: pointer;
+}
+
+#cardSection .heart:checked+label::before {
+    content: '❤️';
+}
+
+/* 2차과제 css */
+
+.cardMainContainer {
+    margin-left: 1rem;
+}
+
+#tagSection .tagUl {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1.5rem;
+}
+
+#tagSection .tagUl>li {
+    padding: 0.5rem;
+    margin: 0 1rem;
+
+    border-radius: 5px;
+    background-color: #13e51a;
+    /* 배경색 */
+    box-shadow: 0 5px 0 #529e55;
+
+    transform: perspective(400px) rotateY(25deg) rotateX(-5deg);
+    transition: all 0.4s ease-in-out;
+    color: white;
+}
+
+#tagSection .tagUl>li>i {
+    margin-left: 0.5rem;
+    padding: 0.1rem;
+    border-radius: 50%;
+}
+
+#tagSection .tagUl>li:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.card .tagModal {
+    display: none;
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+    background-color: rgba(161, 161, 161, 0.8);
+
+    cursor: pointer;
+    z-index: 1;
+}
+
+.card .tagModal .tagModal_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 70%;
+    height: 70%;
+
+    padding: 1.5rem;
+
+    background-color: rgb(6, 207, 130);
+    border-radius: 20px;
+}
+
+
+.card .tagModal .tagModal_container .exitIcon {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+
+    padding: 0.125rme;
+    border-radius: 50%;
+    color: white;
+
+}
+
+.card .tagModal .tagModal_container .exitIcon:hover {
+    color: red;
+    cursor: pointer;
+}
