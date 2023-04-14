@@ -1,8 +1,8 @@
 # React 프로젝트의 폴더구조는 어떻게 설계하는것이 좋을까???
 
-## Presentation Component - Container Component ↔ Custom hook ↔ Atomic를 비교해보자!
+## 1. Presentation Component - Container Component ↔ Custom hook ↔ Atomic를 비교해보자!
 
-## Presentation Component - Container Component 
+### Presentation Component - Container Component 
 
 React의 가장 기본적인 디자인 패턴으로 UI와 로직을 분리한 형태이다. <br/>
 UI와 로직을 하나의 컴포넌트로 모두 담으면 파일이 커지게 되고 유지보수가 어려워진다.<br/>
@@ -23,14 +23,14 @@ LoginForm 컴포넌트는 유저에게 로그인 정보를 받아 로직을 처�
 그러나 요즘은 이러한 패턴을 사용하지 않는다고 하는데<br/>
 Component - Hooks패턴으로 작업이 단순해지고 재사용까지 편리해지기 때문이다.<br/>
 
-## Component + Custom hook
+### Component + Custom hook
 
 앞선 Presentation Component - Container Component 형식에서는 LoginForm 의 로직을 재사용하기가 어렵다. <br/>
 즉 다른 컴포넌트에서 LoginForm 이라는 공통의 로직이 발생하면 이를 넘겨줄 수 없다는 말이다.<br/>
 
 그러나 CustomHook으로 LoginForm 의 로직을 따로 관리하면 해당로직이 필요한 컴포넌트로 LoginForm 훅을 불러와 재사용 할 수 있다.<br/>
 
-## Atomic 구조
+### Atomic 구조
 
 Atom - Molecule - Organism - Template - Page<br/>
 의 단계로 이루어져 있다.<br/>
@@ -48,16 +48,15 @@ button input 등등을 미리 만들어둔 후 가져다 쓰기만 하면 되는
 
 그러나 기획이나 디자인이 자주 변경된다면 Atom을 계속 수정해야하는 문제가 발생함으로 Atomic 구조를 추천하지 않는다.<br/>
 
-# 언제 어떤 방식을 택하는게 좋을까?
-Presentation Component - Container Component : component + Custom hook 방식이 좋아보여 <br/>
-거의 쓰지는 않지만 초심자에게 커스텀훅까지 설계하기 어려울 때 사용해보면 조금 좋을 듯 하다!
+## 2. 언제 어떤 방식을 택하는게 좋을까?
+Presentation Component - Container Component : component + Custom hook 방식이 좋아보여 거의 쓰지는 않지만 초심자에게 커스텀훅까지 설계하기 어려울 때 사용해보면 조금 좋을 듯 하다!
 
 component + Custom hook : 커스텀훅을 통해 재사용이 가능해지기 때문에 리액트에 가장 좋은 방식이라고 생각된다.<br/>
 
 Atomic : 컴포넌트를 작은 단위로 분리하기 때문에 버튼 ,  input 등의 디자인들이 잘 만들어져있고 이런것들을 주로 활용할 때 사용되면 좋은 방법이라고 생각된다. <br/>
 그러나 앞서 언급했든 기획이나 디자인이 자주 변동되는 프로젝트라면 Atom컴포넌트를 계속 수정해야하기 때문에 비추된다.<br/>
 
-# 프론트엔드에게 디자인 패턴이란 어떤 존재일까?
+## 3. 프론트엔드에게 디자인 패턴이란 어떤 존재일까?
 
 프론트엔드에게 디자인 패턴이란 부품을 정리하는 과정이며 이는 재사용과 직결되어 있다고 생각된다.<br/>
 
