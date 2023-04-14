@@ -107,6 +107,7 @@ const addCategoryTodo = (todoDataArr) => {
   });
 };
 
+//할일 추가하는 함수
 const addTodo = (category, newTodo) => {
   const parsedlocalData = localStorageApi.getItemReturnParse("todoData")
 
@@ -133,6 +134,7 @@ const addTodo = (category, newTodo) => {
   countFinishedTodo();
 };
 
+//모달 생성함수
 const createModal = () => {
   const addTodoInput = document.querySelector("#addTodoInput");
   const addTodoBtn = document.querySelector("#addTodoBtn");

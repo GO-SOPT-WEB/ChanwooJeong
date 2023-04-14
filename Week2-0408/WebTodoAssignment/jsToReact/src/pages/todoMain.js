@@ -105,6 +105,7 @@ function TodoMainPage($container) {
         </article>
     </template>
   `;
+  
   };
   this.render();
 }
