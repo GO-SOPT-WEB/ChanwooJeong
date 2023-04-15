@@ -12,7 +12,7 @@ function App($container) {
 
     const route = () => {
       currentPage = null;
-      const TargetPage = findMatchedRoute()?.element || Error404;
+      const TargetPage = findMatchedRoute()?.element || Error404;      
       currentPage = new TargetPage(this.$container);
     };
 
