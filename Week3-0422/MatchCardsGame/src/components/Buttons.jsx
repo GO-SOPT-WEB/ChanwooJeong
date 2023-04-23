@@ -27,10 +27,28 @@ const ResetButton = () => {
   return <ResetBtnWrapper>RESET</ResetBtnWrapper>;
 };
 
-const DifficultyBtnWrapper = styled.button``;
+const DifficultyBtnWrapper = styled.button`
+  width: 10rem;
+  height: 5rem;
 
-const DifficultyButton = () => {
-  return <DifficultyBtnWrapper>난이도 버튼</DifficultyBtnWrapper>;
+  margin: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+
+  background-color: #13e51a;
+  box-shadow: 0 0.8rem 0 #529e55;
+
+  color: white;
+  font-size: 2rem;
+  :hover {
+    cursor: pointer;
+    margin-top: 1.4rem;
+    box-shadow: 0 0.4rem 0 #529e55;
+  }
+`;
+
+const DifficultyButton = ({difficulty}) => {
+  return <DifficultyBtnWrapper>{difficulty}</DifficultyBtnWrapper>;
 };
 
 export { ResetButton, DifficultyButton };
