@@ -8,7 +8,7 @@ const Wrapper = styled.section`
 
   padding: 1rem 0;
 
-  height: fit-content;
+  height: 10rem;
 `;
 
 const DifficultySection = () => {
