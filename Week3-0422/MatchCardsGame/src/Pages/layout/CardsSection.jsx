@@ -10,15 +10,9 @@ const Wrapper = styled.section`
   height: calc(100% - 30rem);
 `
 const CardsSection = () => {
-  const [isload, setIsload] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsload(false);
-    }, 1000);
-  }, []);
   return (
-    <Wrapper isload={isload}>
+    <Wrapper>
       <Card />
       <Card />
       <Card />
