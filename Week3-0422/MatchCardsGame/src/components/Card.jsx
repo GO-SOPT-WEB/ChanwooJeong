@@ -100,11 +100,13 @@ const Wrapper = styled.article`
 
       .headerName {
         position: absolute;
+        font-size: 1.5rem;
         top: 1.5rem;
         left: 1.5rem;
       }
       .footerName {
         position: absolute;
+        font-size: 1.5rem;
         bottom: 1.5rem;
         right: 1.5rem;
       }
@@ -120,7 +122,8 @@ const Wrapper = styled.article`
   }
 `;
 
-const Card = () => {
+const Card = (props) => {
+  const {pokemonId,pokemonName,pokemonImg} =props
   return (
     <Wrapper>
       <div className="card">
@@ -136,16 +139,16 @@ const Card = () => {
 
           <div className="front">
             <div className="front-content">
-              <span className="headerName">피카츄</span>
+              <span className="headerName">{pokemonName}</span>
 
               <div className="pokemonImgBox">
                 <img
                   className="pokemonImg"
-                  src="https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/002501.png"
+                  src={pokemonImg}
                   alt="피카츄"
                 />
               </div>
-              <span className="footerName">피카츄</span>
+              <span className="footerName">{pokemonName}</span>
             </div>
           </div>
         </div>

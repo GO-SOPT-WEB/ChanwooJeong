@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const ResetBtnWrapper = styled.button`
   position: absolute;
@@ -40,15 +40,34 @@ const DifficultyBtnWrapper = styled.button`
 
   color: white;
   font-size: 2rem;
-  :hover {
-    cursor: pointer;
-    margin-top: 1.4rem;
-    box-shadow: 0 0.4rem 0 #529e55;
-  }
+
+  cursor: pointer;
+
+  ${(props) =>
+    props.difficulty === props.currentDifficulty &&
+    css`
+      cursor: pointer;
+      margin-top: 1.4rem;
+      box-shadow: 0 0.4rem 0 #529e55;
+    `};
 `;
 
-const DifficultyButton = ({difficulty}) => {
-  return <DifficultyBtnWrapper>{difficulty}</DifficultyBtnWrapper>;
+const DifficultyButton = (props) => {
+  const { difficulty, setDifficulty, currentDifficulty } = props;
+
+  const changeGameDifficulty = () => {
+    setDifficulty(difficulty);
+  };
+
+  return (
+    <DifficultyBtnWrapper
+      onClick={changeGameDifficulty}
+      difficulty={difficulty}
+      currentDifficulty={currentDifficulty}
+    >
+      {difficulty}
+    </DifficultyBtnWrapper>
+  );
 };
 
 export { ResetButton, DifficultyButton };

@@ -11,12 +11,20 @@ const Wrapper = styled.section`
   height: 10rem;
 `;
 
-const DifficultySection = () => {
+const DifficultyType = ["Easy", "Normal", "Hard"];
+const DifficultySection = (props) => {
+  const { currentDifficulty , setDifficulty } = props;
+
   return (
     <Wrapper>
-      <DifficultyButton difficulty={"Easy"}/>
-      <DifficultyButton difficulty={"Normal"}/>
-      <DifficultyButton difficulty={"Hard"}/>
+      {DifficultyType.map((difficulty, i) => (
+        <DifficultyButton
+          key={i}
+          difficulty={difficulty}
+          setDifficulty={setDifficulty}
+          currentDifficulty={currentDifficulty}
+        />
+      ))}
     </Wrapper>
   );
 };
