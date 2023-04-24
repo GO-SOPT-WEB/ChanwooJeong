@@ -1,4 +1,4 @@
-export const EASY_POKEMON_LIST = [
+export const POKEMON_LIST = [
   {
     id: 1,
     name: "이상해씨",
@@ -40,10 +40,6 @@ export const EASY_POKEMON_LIST = [
     JJim: false,
     evolution: 3,
   },
-];
-
-export const NORMAL_POKEMON_LIST = [
-  ...EASY_POKEMON_LIST,
   {
     id: 6,
     name: "피죤",
@@ -60,26 +56,21 @@ export const NORMAL_POKEMON_LIST = [
     JJim: false,
     evolution: 3,
   },
-];
-
-export const HARD_POKEMON_LIST =[
-    ...NORMAL_POKEMON_LIST ,
-    {
-        id: 8,
-        name: "잠만보",
-        tag: ["진화1", "잠자기", "수면"],
-        img: "https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/014301.png",
-        JJim: false,
-        evolution: 1,
-      },
-      {
-        id: 9,
-        name: "지라치",
-        tag: ["진화1", "별머리", "귀요미"],
-        img: "https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/038501.png",
-        JJim: false,
-        evolution: 1,
-      },
+  {
+    id: 8,
+    name: "잠만보",
+    tag: ["진화1", "잠자기", "수면"],
+    img: "https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/014301.png",
+    JJim: false,
+    evolution: 1,
+  },
+  {
+    id: 9,
+    name: "지라치",
+    tag: ["진화1", "별머리", "귀요미"],
+    img: "https://data1.pokemonkorea.co.kr/newdata/pokedex/mid/038501.png",
+    JJim: false,
+    evolution: 1,
+  }
 ]
-
 
