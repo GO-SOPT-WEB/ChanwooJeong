@@ -22,7 +22,7 @@ const ScoreBoard = styled.div`
 `;
 
 const Header = (props) => {
-  const { currentDifficulty, matchedArr } = props;
+  const { currentDifficulty, matchedArr ,reSet } = props;
 
   const howManyCorrect = matchedArr.length;
   return (
@@ -39,7 +39,7 @@ const Header = (props) => {
             }[currentDifficulty]
           }
         </ScoreBoard>
-        <ResetButton />
+        <ResetButton reSet={reSet} />
       </Wrapper>
     </>
   );

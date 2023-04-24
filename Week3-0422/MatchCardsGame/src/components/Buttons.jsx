@@ -23,8 +23,10 @@ const ResetBtnWrapper = styled.button`
   }
 `;
 
-const ResetButton = () => {
-  return <ResetBtnWrapper>RESET</ResetBtnWrapper>;
+const ResetButton = (props) => {
+  const { reSet } = props;
+
+  return <ResetBtnWrapper onClick={reSet}>RESET</ResetBtnWrapper>;
 };
 
 const DifficultyBtnWrapper = styled.button`
@@ -53,7 +55,7 @@ const DifficultyBtnWrapper = styled.button`
 `;
 
 const DifficultyButton = (props) => {
-  const { difficulty, setDifficulty, currentDifficulty ,reset} = props;
+  const { difficulty, setDifficulty, currentDifficulty, reset } = props;
 
   const changeGameDifficulty = () => {
     setDifficulty(difficulty);
@@ -61,9 +63,9 @@ const DifficultyButton = (props) => {
 
   return (
     <DifficultyBtnWrapper
-      onClick={()=>{
-        changeGameDifficulty()
-        reset()
+      onClick={() => {
+        changeGameDifficulty();
+        reset();
       }}
       difficulty={difficulty}
       currentDifficulty={currentDifficulty}

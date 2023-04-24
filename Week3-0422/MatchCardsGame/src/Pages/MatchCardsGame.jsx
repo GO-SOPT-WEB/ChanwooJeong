@@ -48,7 +48,7 @@ const MatchCardsGame = () => {
   return (
     <>
       <Wrapper>
-        <Header currentDifficulty={difficulty} matchedArr={matchedArr} />
+        <Header currentDifficulty={difficulty} matchedArr={matchedArr} reSet={reSet} />
         <DifficultySection
           currentDifficulty={difficulty}
           setDifficulty={setDifficulty}
