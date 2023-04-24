@@ -53,7 +53,7 @@ const DifficultyBtnWrapper = styled.button`
 `;
 
 const DifficultyButton = (props) => {
-  const { difficulty, setDifficulty, currentDifficulty } = props;
+  const { difficulty, setDifficulty, currentDifficulty ,reset} = props;
 
   const changeGameDifficulty = () => {
     setDifficulty(difficulty);
@@ -61,7 +61,10 @@ const DifficultyButton = (props) => {
 
   return (
     <DifficultyBtnWrapper
-      onClick={changeGameDifficulty}
+      onClick={()=>{
+        changeGameDifficulty()
+        reset()
+      }}
       difficulty={difficulty}
       currentDifficulty={currentDifficulty}
     >

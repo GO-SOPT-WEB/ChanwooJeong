@@ -1,18 +1,22 @@
+/* eslint-disable react/prop-types */
 import styled from "styled-components";
-
+import { useState } from "react";
+import { useEffect } from "react";
 const Wrapper = styled.article`
+  cursor: pointer;
   margin: 2rem;
   .card {
     width: 19rem;
     height: 25rem;
 
-    :hover .content {
+    /* :hover .content {
       transform: rotateY(180deg);
-    }
+    } */
 
-    /* .card .content{
-    transform: rotateY(180deg);
-  } */
+    .active {
+      transform: rotateY(180deg);
+      pointer-events: none;
+    }
   }
 
   .content {
@@ -123,11 +127,47 @@ const Wrapper = styled.article`
 `;
 
 const Card = (props) => {
-  const {pokemonId,pokemonName,pokemonImg} =props
+  const {
+    Primarykey,
+    pokemonName,
+    pokemonImg,
+    matchCards,
+    matchCardArr,
+  } = props;
+
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    if (!matchCardArr.matchingArr[0]) {
+      setTimeout(() => setActive(false), 1000);
+      return;
+    }
+
+    if (matchCardArr.matchingArr[0].Primarykey !== Primarykey) {
+      setTimeout(() => setActive(false), 1000);
+    }
+
+    
+  }, [matchCardArr, Primarykey, setActive]);
+
+
+  const alreadyMatched = matchCardArr.matchedArr.some((pokemon) => {
+    return (
+      pokemon.first.pokemonName === pokemonName ||
+      pokemon.second.pokemonName === pokemonName
+    );
+  });
+
+  const matchHandler = () => {
+    const payload = { Primarykey, pokemonName };
+    matchCards(payload);
+    setActive(true);
+  };
+
   return (
-    <Wrapper>
+    <Wrapper onClick={active ? "" : matchHandler}>
       <div className="card">
-        <div className="content">
+        <div className={`content ${ alreadyMatched ? "active" :  active ? "active" : ""}`}>
           <div className="back">
             <div className="back-content">
               <img
@@ -142,11 +182,7 @@ const Card = (props) => {
               <span className="headerName">{pokemonName}</span>
 
               <div className="pokemonImgBox">
-                <img
-                  className="pokemonImg"
-                  src={pokemonImg}
-                  alt="피카츄"
-                />
+                <img className="pokemonImg" src={pokemonImg} alt="피카츄" />
               </div>
               <span className="footerName">{pokemonName}</span>
             </div>

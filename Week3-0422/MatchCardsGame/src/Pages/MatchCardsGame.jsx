@@ -13,6 +13,38 @@ const MatchCardsGame = () => {
   //첫 난이도 설정
   const [difficulty, setDifficulty] = useState("Easy");
 
+  const [matchingArr, setMatchingArr] = useState([]);
+  const [matchedArr , setMatchedArr] = useState([]);
+
+
+  const reSet = () => {
+    setMatchingArr([])
+    setMatchedArr([])
+  }
+
+
+  const matchCards = (data) => {
+    if (!matchingArr.length) {
+      const newMatchCardArr = [...matchingArr]
+      newMatchCardArr.push(data);
+      setMatchingArr(newMatchCardArr)
+      console.log("첫번째 카드를 골랐습니다.");
+      return;
+    }
+    if (matchingArr.length) {
+      if (matchingArr[0].pokemonName === data.pokemonName) {
+        const newMatchedArr = [...matchedArr]
+        newMatchedArr.push({ first: matchingArr[0], second: data });
+        setMatchedArr(newMatchedArr)
+        setMatchingArr([]);
+        console.log(matchedArr)
+        console.log("두카드가 일치 합니다.");
+      } else {
+        setMatchingArr([]);
+        console.log(matchingArr, "두카드가 일치 하지 않습니다.");
+      }
+    }
+  };
   return (
     <>
       <Wrapper>
@@ -20,8 +52,9 @@ const MatchCardsGame = () => {
         <DifficultySection
           currentDifficulty={difficulty}
           setDifficulty={setDifficulty}
+          reset={reSet}
         />
-        <CardsSection currentDifficulty={difficulty} />
+        <CardsSection currentDifficulty={difficulty} matchCards={matchCards} matchCardArr={{matchingArr , matchedArr}} />
       </Wrapper>
     </>
   );
