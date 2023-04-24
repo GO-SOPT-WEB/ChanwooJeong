@@ -1,12 +1,9 @@
-import { EASY_POKEMON_LIST , NORMAL_POKEMON_LIST , HARD_POKEMON_LIST } from "../../assets/cardsData";
+import {
+  POKEMON_LIST,
+} from "../../assets/cardsData";
 
 const getPokemonListRandom = (currentDifficulty) => {
   let pokemonList = [];
-
-  if (currentDifficulty === "Easy") pokemonList = EASY_POKEMON_LIST;
-  if (currentDifficulty === "Normal") pokemonList = NORMAL_POKEMON_LIST;
-  if (currentDifficulty === "Hard") pokemonList = HARD_POKEMON_LIST;
-  let gamePokemonList = [...pokemonList, ...pokemonList];
 
   const setRandomCardList = (cardList) => {
     return [...cardList]
@@ -14,9 +11,14 @@ const getPokemonListRandom = (currentDifficulty) => {
       .sort(() => Math.random() - 0.5);
   };
 
-  const RandomCardList = setRandomCardList(gamePokemonList);
+  const RandomCardList = setRandomCardList(POKEMON_LIST);
 
-  return RandomCardList;
+  if (currentDifficulty === "Easy") pokemonList = RandomCardList.slice(0, 5);
+  if (currentDifficulty === "Normal") pokemonList = RandomCardList.slice(0, 7);
+  if (currentDifficulty === "Hard") pokemonList = RandomCardList.slice(0, 9);
+  let gamePokemonList = [...pokemonList, ...pokemonList];
+
+  return gamePokemonList;
 };
 
-export default getPokemonListRandom
+export default getPokemonListRandom;
