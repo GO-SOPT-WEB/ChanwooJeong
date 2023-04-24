@@ -21,12 +21,24 @@ const ScoreBoard = styled.div`
   font-size: 4.5rem;
 `;
 
-const Header = () => {
+const Header = (props) => {
+  const { currentDifficulty, matchedArr } = props;
+
+  const howManyCorrect = matchedArr.length;
   return (
     <>
       <Wrapper>
         <h1>🐣포켓몬 카드 맞추기 게임🐣</h1>
-        <ScoreBoard>0 / 5</ScoreBoard>
+        <ScoreBoard>
+          {howManyCorrect} /{" "}
+          {
+            {
+              Easy: "5",
+              Normal: "7",
+              Hard: "9",
+            }[currentDifficulty]
+          }
+        </ScoreBoard>
         <ResetButton />
       </Wrapper>
     </>
