@@ -9,20 +9,16 @@ const Wrapper = styled.section`
   justify-content: center;
 
   margin: 0 1.5rem;
-  height: calc(100% - 30rem);
+  margin-bottom: 7rem;
 `;
 const CardsSection = (props) => {
-  const { currentDifficulty , matchCards , matchCardArr } = props;
-
+  const { currentDifficulty, matchCards, matchCardArr, setMatchingArr } = props;
 
   const RandomCardList = useMemo(() => {
     //랜덤카드데이터 가져오기
     const RandomCardList = getPokemonListRandom(currentDifficulty);
-    return RandomCardList
+    return RandomCardList;
   }, [currentDifficulty]);
-
-
-
 
   return (
     <Wrapper>
@@ -35,6 +31,7 @@ const CardsSection = (props) => {
           pokemonImg={pokemonData.img}
           matchCards={matchCards}
           matchCardArr={matchCardArr}
+          setMatchingArr={setMatchingArr}
         />
       ))}
     </Wrapper>

@@ -1,9 +1,6 @@
 import styled, { css } from "styled-components";
 
 const ResetBtnWrapper = styled.button`
-  position: absolute;
-  right: 10rem;
-
   margin: 0 1rem;
   padding: 1rem;
 
@@ -24,10 +21,18 @@ const ResetBtnWrapper = styled.button`
 `;
 
 const ResetButton = (props) => {
-  const { reSet } = props;
+  const { allReset } = props;
 
-  return <ResetBtnWrapper onClick={reSet}>RESET</ResetBtnWrapper>;
+  return <ResetBtnWrapper onClick={allReset}>RESET</ResetBtnWrapper>;
 };
+
+const ChangeThemeWrapper = styled(ResetBtnWrapper)`
+  
+`
+
+const ChangeThemeBtn = () => {
+  return <ChangeThemeWrapper>Theme</ChangeThemeWrapper>
+}
 
 const DifficultyBtnWrapper = styled.button`
   width: 10rem;
@@ -75,4 +80,4 @@ const DifficultyButton = (props) => {
   );
 };
 
-export { ResetButton, DifficultyButton };
+export { ChangeThemeBtn ,ResetButton, DifficultyButton };

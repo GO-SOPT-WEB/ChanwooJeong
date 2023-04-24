@@ -9,13 +9,8 @@ const Wrapper = styled.article`
     width: 19rem;
     height: 25rem;
 
-    /* :hover .content {
-      transform: rotateY(180deg);
-    } */
-
     .active {
       transform: rotateY(180deg);
-      pointer-events: none;
     }
   }
 
@@ -133,23 +128,20 @@ const Card = (props) => {
     pokemonImg,
     matchCards,
     matchCardArr,
+    setMatchingArr,
   } = props;
 
   const [active, setActive] = useState(false);
+  const [allStop, setAllStop] = useState(false);
 
   useEffect(() => {
-    if (!matchCardArr.matchingArr[0]) {
+    if (matchCardArr.matchingArr.length === 2) {
+      setAllStop(true);
       setTimeout(() => setActive(false), 1000);
-      return;
+      setMatchingArr([]);
+      setTimeout(() => setAllStop(false), 1000);
     }
-
-    if (matchCardArr.matchingArr[0].Primarykey !== Primarykey) {
-      setTimeout(() => setActive(false), 1000);
-    }
-
-    
-  }, [matchCardArr, Primarykey, setActive]);
-
+  }, [matchCardArr.matchingArr]);
 
   const alreadyMatched = matchCardArr.matchedArr.some((pokemon) => {
     return (
@@ -165,9 +157,15 @@ const Card = (props) => {
   };
 
   return (
-    <Wrapper onClick={active ? "" : matchHandler}>
+    <Wrapper
+      onClick={alreadyMatched || allStop || active ? null : matchHandler}
+    >
       <div className="card">
-        <div className={`content ${ alreadyMatched ? "active" :  active ? "active" : ""}`}>
+        <div
+          className={`content ${
+            alreadyMatched ? "active" : active ? "active" : ""
+          }`}
+        >
           <div className="back">
             <div className="back-content">
               <img
