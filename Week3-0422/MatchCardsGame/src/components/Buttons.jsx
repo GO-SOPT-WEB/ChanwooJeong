@@ -30,8 +30,9 @@ const ChangeThemeWrapper = styled(ResetBtnWrapper)`
   
 `
 
-const ChangeThemeBtn = () => {
-  return <ChangeThemeWrapper>Theme</ChangeThemeWrapper>
+const ChangeThemeBtn = (props) => {
+  const {setIsDark} =props
+  return <ChangeThemeWrapper onClick={()=>setIsDark((prev)=>!prev)}>Theme</ChangeThemeWrapper>
 }
 
 const DifficultyBtnWrapper = styled.button`

@@ -9,10 +9,13 @@ const Wrapper = styled.div`
 
   overflow: scroll;
   overflow-x: hidden;
-  background-color: rgb(252, 233, 233);
+  background-color: ${(props) => props.theme.bgColor};
 `;
 
-const MatchCardsGame = () => {
+const MatchCardsGame = (props) => {
+  
+  const {setIsDark} = props
+  
   //첫 난이도 설정
   const [difficulty, setDifficulty] = useState("Easy");
 
@@ -55,6 +58,7 @@ const MatchCardsGame = () => {
           currentDifficulty={difficulty}
           matchedArr={matchedArr}
           allReset={allReset}
+          setIsDark={setIsDark}
         />
         <DifficultySection
           currentDifficulty={difficulty}

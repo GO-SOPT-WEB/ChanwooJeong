@@ -6,7 +6,7 @@ const Wrapper = styled.header`
   flex-direction: row;
   width: 100%;
   height: 20rem;
-  background-color: #f8f8f8;
+  background-color: ${(props)=> props.theme.headerColor};
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 `;
 
@@ -19,11 +19,12 @@ const MainCenterBox = styled.div`
 
   h1 {
     font-size: 4.5rem;
-    color: #333;
+    color: ${(props)=> props.theme.textColor};
   }
 `;
 
 const ScoreBoard = styled.div`
+color: ${(props)=> props.theme.textColor};
   font-size: 4.5rem;
 `;
 const ButtonBox = styled.div`
@@ -34,14 +35,14 @@ align-items: center;
 `;
 
 const Header = (props) => {
-  const { currentDifficulty, matchedArr, allReset } = props;
+  const { currentDifficulty, matchedArr, allReset ,setIsDark} = props;
 
   const howManyCorrect = matchedArr.length;
   return (
     <>
       <Wrapper>
         <ButtonBox>
-          <ChangeThemeBtn  />
+          <ChangeThemeBtn setIsDark={setIsDark}  />
         </ButtonBox>
         <MainCenterBox>
           <h1>🐣포켓몬 카드 맞추기 게임🐣</h1>

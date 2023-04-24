@@ -1,6 +1,9 @@
+import { useState } from "react";
 import "./App.css";
 import MatchCardsGame from "./Pages/MatchCardsGame";
 import { createGlobalStyle } from "styled-components";
+import { ThemeProvider } from "styled-components";
+import { darkTheme, lightTheme } from "./assets/theme";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -69,10 +72,13 @@ table {
 }
 `;
 function App() {
+  const [isDark, setIsDark] = useState(false);
   return (
     <>
-      <GlobalStyle />
-      <MatchCardsGame />
+      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+        <GlobalStyle />
+        <MatchCardsGame setIsDark={setIsDark} />
+      </ThemeProvider>
     </>
   );
 }
