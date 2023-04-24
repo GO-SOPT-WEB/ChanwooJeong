@@ -7,8 +7,7 @@ const getPokemonListRandom = (currentDifficulty) => {
 
   const setRandomCardList = (cardList) => {
     return [...cardList]
-      .sort(() => Math.random() - 0.5)
-      .sort(() => Math.random() - 0.5);
+      .sort(() => Math.random() - 0.3)
   };
 
   const RandomCardList = setRandomCardList(POKEMON_LIST);
@@ -18,7 +17,9 @@ const getPokemonListRandom = (currentDifficulty) => {
   if (currentDifficulty === "Hard") pokemonList = RandomCardList.slice(0, 9);
   let gamePokemonList = [...pokemonList, ...pokemonList];
 
-  return gamePokemonList;
+  const reRandomCardList = setRandomCardList(gamePokemonList)
+
+  return reRandomCardList;
 };
 
 export default getPokemonListRandom;
