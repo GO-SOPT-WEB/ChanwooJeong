@@ -56,6 +56,7 @@ const MatchCardsGame = (props) => {
     }
   };
 
+  //모달 관련코드
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <>

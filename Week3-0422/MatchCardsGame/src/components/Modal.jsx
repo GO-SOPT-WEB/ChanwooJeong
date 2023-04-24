@@ -22,6 +22,16 @@ const ModalInnerContent = styled.div`
   background-color: aliceblue;
   border-radius: 5rem;
   font-size: 7rem;
+
+  button {
+      margin-top: 2rem;
+      padding:1rem;
+      border: none;
+      background-color: palevioletred;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+  }
 `;
 
 const Modal = ({ children, setIsModalOpen, allReset }) => {
