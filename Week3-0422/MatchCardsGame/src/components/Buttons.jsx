@@ -26,14 +26,16 @@ const ResetButton = (props) => {
   return <ResetBtnWrapper onClick={allReset}>RESET</ResetBtnWrapper>;
 };
 
-const ChangeThemeWrapper = styled(ResetBtnWrapper)`
-  
-`
+const ChangeThemeWrapper = styled(ResetBtnWrapper)``;
 
 const ChangeThemeBtn = (props) => {
-  const {setIsDark} =props
-  return <ChangeThemeWrapper onClick={()=>setIsDark((prev)=>!prev)}>Theme</ChangeThemeWrapper>
-}
+  const { setIsDark } = props;
+  return (
+    <ChangeThemeWrapper onClick={() => setIsDark((prev) => !prev)}>
+      Theme
+    </ChangeThemeWrapper>
+  );
+};
 
 const DifficultyBtnWrapper = styled.button`
   width: 10rem;
@@ -81,4 +83,4 @@ const DifficultyButton = (props) => {
   );
 };
 
-export { ChangeThemeBtn ,ResetButton, DifficultyButton };
+export { ChangeThemeBtn, ResetButton, DifficultyButton };

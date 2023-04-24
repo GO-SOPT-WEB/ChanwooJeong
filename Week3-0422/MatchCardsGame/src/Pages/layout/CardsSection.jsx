@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Card from "../../components/Card";
 import getPokemonListRandom from "../utils/getPokemonList";
-import { useMemo, useState } from "react";
+import { useMemo} from "react";
 
 const Wrapper = styled.section`
   display: flex;

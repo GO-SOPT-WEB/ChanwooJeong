@@ -3,6 +3,9 @@ import Header from "./layout/Header";
 import DifficultySection from "./layout/DifficultySection";
 import CardsSection from "./layout/CardsSection";
 import { useState } from "react";
+import ModalPortal from "./utils/modalPortal";
+import Modal from "../components/Modal";
+
 const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
@@ -13,15 +16,12 @@ const Wrapper = styled.div`
 `;
 
 const MatchCardsGame = (props) => {
-  
-  const {setIsDark} = props
-  
+  const { setIsDark } = props;
+
   //첫 난이도 설정
   const [difficulty, setDifficulty] = useState("Easy");
 
-  const [matchingArr, setMatchingArr] = useState([]);
-  const [matchedArr, setMatchedArr] = useState([]);
-
+  //리셋함수
   const allReset = () => {
     reSet();
     setDifficulty("Easy");
@@ -31,6 +31,10 @@ const MatchCardsGame = (props) => {
     setMatchingArr([]);
     setMatchedArr([]);
   };
+
+  //카드맞추기
+  const [matchingArr, setMatchingArr] = useState([]);
+  const [matchedArr, setMatchedArr] = useState([]);
 
   const matchCards = (data) => {
     if (matchingArr.length < 2) {
@@ -51,6 +55,8 @@ const MatchCardsGame = (props) => {
       }
     }
   };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <>
       <Wrapper>
@@ -59,6 +65,7 @@ const MatchCardsGame = (props) => {
           matchedArr={matchedArr}
           allReset={allReset}
           setIsDark={setIsDark}
+          setIsModalOpen={setIsModalOpen}
         />
         <DifficultySection
           currentDifficulty={difficulty}
@@ -71,6 +78,13 @@ const MatchCardsGame = (props) => {
           setMatchingArr={setMatchingArr}
           matchCardArr={{ matchingArr, matchedArr }}
         />
+        {isModalOpen && (
+          <ModalPortal>
+            <Modal allReset={allReset} setIsModalOpen={setIsModalOpen}>
+              Game Clear🎉
+            </Modal>
+          </ModalPortal>
+        )}
       </Wrapper>
     </>
   );
