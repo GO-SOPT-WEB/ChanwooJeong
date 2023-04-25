@@ -74,11 +74,11 @@ function TodoMainPage($container) {
             </section>
         </main>
         <footer>
-            <button type="button" onclick="location.href='/calendar'">
+            <button type="button" onclick="window.location.href ='/calendar'">
                 <img src="https://cdn.icon-icons.com/icons2/1659/PNG/512/3844435-home-house_110321.png" alt="calendar"/>
                 <div>달력</div>
             </button>
-            <button type="button" onclick="location.href='/myCategory'">
+            <button type="button" onclick="window.location.href ='/myCategory'">
                 <img src="https://cdn-icons-png.flaticon.com/512/880/880590.png" alt="My"/>
                 <div>MY</div>
             </button>

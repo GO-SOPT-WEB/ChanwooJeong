@@ -16,7 +16,7 @@ function MyCategory($container) {
         <div class="dragDropcontainer">
         </div>
         <footer>
-            <button type="button" onclick="location.href='/'">
+            <button type="button" onclick="window.location.href ='/'">
                 <img src="https://cdn.icon-icons.com/icons2/1659/PNG/512/3844435-home-house_110321.png" alt="calendar"/>
                 <div>홈</div>
             </button>
