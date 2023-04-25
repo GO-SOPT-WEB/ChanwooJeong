@@ -14,8 +14,9 @@ const Wrapper = styled.section`
 const CardsSection = (props) => {
   const { currentDifficulty, matchCards, matchCardArr, setMatchingArr } = props;
 
+  /** 랜덤카드데이터 가져오고 난이도가 변경되지 않는 한 해당 데이터들을 저장 (useMemo사용) */
   const RandomCardList = useMemo(() => {
-    //랜덤카드데이터 가져오기
+    /** 랜덤카드데이터 가져오기 */
     const RandomCardList = getPokemonListRandom(currentDifficulty);
     return RandomCardList;
   }, [currentDifficulty]);

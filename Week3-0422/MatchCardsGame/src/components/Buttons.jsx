@@ -20,6 +20,8 @@ const ResetBtnWrapper = styled.button`
   }
 `;
 
+
+/** 전체 리셋 버튼 **/
 const ResetButton = (props) => {
   const { allReset } = props;
 
@@ -28,8 +30,11 @@ const ResetButton = (props) => {
 
 const ChangeThemeWrapper = styled(ResetBtnWrapper)``;
 
+
+/** 테마 변경 버튼 **/  
 const ChangeThemeBtn = (props) => {
   const { setIsDark } = props;
+
   return (
     <ChangeThemeWrapper onClick={() => setIsDark((prev) => !prev)}>
       Theme
@@ -62,6 +67,8 @@ const DifficultyBtnWrapper = styled.button`
     `};
 `;
 
+
+/** 난이도 변경 버튼 **/
 const DifficultyButton = (props) => {
   const { difficulty, setDifficulty, currentDifficulty, reset } = props;
 

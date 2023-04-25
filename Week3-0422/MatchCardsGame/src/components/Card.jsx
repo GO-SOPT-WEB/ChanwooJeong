@@ -131,9 +131,12 @@ const Card = (props) => {
     setMatchingArr,
   } = props;
 
+  /** 카드 막기 및 카드를 매칭할 때 전체 이벤트 막기 위한 useState */
   const [active, setActive] = useState(false);
   const [allStop, setAllStop] = useState(false);
 
+
+  /** 2개의 카드의 동일 유무를 가리기 위한 로직 */
   useEffect(() => {
     if (matchCardArr.matchingArr.length === 2) {
       setAllStop(true);
@@ -141,8 +144,10 @@ const Card = (props) => {
       setMatchingArr([]);
       setTimeout(() => setAllStop(false), 1000);
     }
-  }, [matchCardArr.matchingArr]);
+  }, [matchCardArr.matchingArr ,setActive , setMatchingArr]);
 
+
+  /** 카드가 이미 매칭된 짝인지 판별하는 로직 */
   const alreadyMatched = matchCardArr.matchedArr.some((pokemon) => {
     return (
       pokemon.first.pokemonName === pokemonName ||
@@ -150,6 +155,7 @@ const Card = (props) => {
     );
   });
 
+  /** 카드를 매칭하는 로직 */
   const matchHandler = () => {
     const payload = { Primarykey, pokemonName };
     matchCards(payload);

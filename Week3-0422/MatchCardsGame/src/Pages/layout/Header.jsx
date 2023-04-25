@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ChangeThemeBtn, ResetButton } from "../../components/Buttons";
+import { useEffect } from "react";
 
 const Wrapper = styled.header`
   display: flex;
@@ -38,14 +39,20 @@ const Header = (props) => {
   const { currentDifficulty, matchedArr, allReset, setIsDark, setIsModalOpen } =
     props;
 
+  /** 난이도에 따른 목표 갯수 설정 */
   let goalCount = null;
   if (currentDifficulty === "Easy") goalCount = 5;
   if (currentDifficulty === "Normal") goalCount = 7;
   if (currentDifficulty === "Hard") goalCount = 9;
 
+  /** 현재까지 맞춘 카드 쌍의 갯수 설정 */
   const howManyCorrect = matchedArr.length;
 
-  if (goalCount === howManyCorrect) setIsModalOpen(true);
+  /** 목표한 쌍과 맞춘 쌍의 카드가 일치한다면 Game Clear 모달 오픈 */
+  useEffect(() => {
+    if (goalCount === howManyCorrect) setIsModalOpen(true);
+  }, [howManyCorrect, setIsModalOpen, goalCount]);
+
   return (
     <>
       <Wrapper>

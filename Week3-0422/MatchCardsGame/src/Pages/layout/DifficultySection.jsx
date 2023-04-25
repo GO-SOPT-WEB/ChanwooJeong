@@ -12,6 +12,7 @@ const Wrapper = styled.section`
 `;
 
 const DifficultyType = ["Easy", "Normal", "Hard"];
+
 const DifficultySection = (props) => {
   const { currentDifficulty , setDifficulty ,reset} = props;
 

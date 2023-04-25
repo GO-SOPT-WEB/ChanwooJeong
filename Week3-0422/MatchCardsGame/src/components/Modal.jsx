@@ -59,11 +59,14 @@ const Confetti = styled.div`
 `;
 
 const Modal = ({ children, setIsModalOpen, allReset }) => {
+  
+  /** 게임으로 돌아가기 + 전체리셋 **/
   const resetAndReturnToGame = () => {
     allReset();
     setIsModalOpen(false);
   };
 
+  /** GameClear 축하 색종이 생성함수**/
   const manyConfetti = () => {
     const Confetties = Array.from({ length: 1000 }).map((index) => {
       return <Confetti key={index} />;
@@ -71,8 +74,8 @@ const Modal = ({ children, setIsModalOpen, allReset }) => {
     return Confetties;
   };
 
+  /** GameClear 축하 색종이 생성**/
   const confettieArr = manyConfetti();
-  console.log(confettieArr);
 
   return (
     <ModalWrapper>

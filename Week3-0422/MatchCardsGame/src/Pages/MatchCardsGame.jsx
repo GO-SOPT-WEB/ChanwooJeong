@@ -21,18 +21,19 @@ const MatchCardsGame = (props) => {
   //첫 난이도 설정
   const [difficulty, setDifficulty] = useState("Easy");
 
-  //리셋함수
+  /** 전체 리셋 + 난이도 Easy로 변경하는 리셋함수 */
   const allReset = () => {
     reSet();
     setDifficulty("Easy");
   };
 
+    /** 단순 카드만 리셋하는 함수 */
   const reSet = () => {
     setMatchingArr([]);
     setMatchedArr([]);
   };
 
-  //카드맞추기
+/** 카드매칭 관련 함수 */
   const [matchingArr, setMatchingArr] = useState([]);
   const [matchedArr, setMatchedArr] = useState([]);
 
@@ -56,7 +57,7 @@ const MatchCardsGame = (props) => {
     }
   };
 
-  //모달 관련코드
+  /** 모달 열고 닫는 useState */
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <>
