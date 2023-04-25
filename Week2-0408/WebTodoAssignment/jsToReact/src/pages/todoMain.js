@@ -1,5 +1,6 @@
 import "../JSfile/todo";
 import "../CSS/todo.css";
+import todoJS from "../JSfile/todo";
 
 function TodoMainPage($container) {
   this.$container = $container;
@@ -108,6 +109,7 @@ function TodoMainPage($container) {
   
   };
   this.render();
+  todoJS()
 }
 
 export default TodoMainPage;
