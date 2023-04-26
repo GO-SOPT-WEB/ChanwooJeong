@@ -1,6 +1,4 @@
-import {
-  POKEMON_LIST,
-} from "../../assets/cardsData";
+import { POKEMON_LIST } from "../../assets/cardsData";
 
 const getPokemonListRandom = (currentDifficulty) => {
   let pokemonList = [];
@@ -9,6 +7,7 @@ const getPokemonListRandom = (currentDifficulty) => {
   const setRandomCardList = (cardList) => {
     return [...cardList]
       .sort(() => Math.random() - 0.5)
+      .sort(() => Math.random() - 0.5);
   };
 
   const RandomCardList = setRandomCardList(POKEMON_LIST);
@@ -21,7 +20,9 @@ const getPokemonListRandom = (currentDifficulty) => {
   /** 짝생성 */
   let gamePokemonList = [...pokemonList, ...pokemonList];
 
-  const reRandomCardList = setRandomCardList(gamePokemonList)
+  const reRandomCardList = setRandomCardList(
+    setRandomCardList(setRandomCardList(setRandomCardList(gamePokemonList)))
+  );
 
   return reRandomCardList;
 };

@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { ChangeThemeBtn, ResetButton } from "../../components/Buttons";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { ProgressBar } from "react-progressbar-fancy";
 
 const Wrapper = styled.header`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 20rem;
+  height: 25rem;
   background-color: ${(props) => props.theme.headerColor};
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 `;
@@ -28,6 +29,14 @@ const ScoreBoard = styled.div`
   color: ${(props) => props.theme.textColor};
   font-size: 4.5rem;
 `;
+
+const StyledProgressBar = styled(ProgressBar)`
+  width: 60%;
+  .number{
+    display: none;
+  }
+`
+
 const ButtonBox = styled.div`
   display: flex;
   justify-content: center;
@@ -53,6 +62,8 @@ const Header = (props) => {
     if (goalCount === howManyCorrect) setIsModalOpen(true);
   }, [howManyCorrect, setIsModalOpen, goalCount]);
 
+  const percent = howManyCorrect / goalCount * 100
+
   return (
     <>
       <Wrapper>
@@ -71,6 +82,9 @@ const Header = (props) => {
               }[currentDifficulty]
             }
           </ScoreBoard>
+          <StyledProgressBar
+            score={percent}
+          />
         </MainCenterBox>
         <ButtonBox>
           <ResetButton allReset={allReset} />
