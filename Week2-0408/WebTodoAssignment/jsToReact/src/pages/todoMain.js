@@ -74,7 +74,7 @@ function TodoMainPage($container) {
             </section>
         </main>
         <footer>
-            <button type="button" onclick="window.location.href ='/calendar'">
+            <button type="button" onclick="window.location.href ='/'">
                 <img src="https://cdn.icon-icons.com/icons2/1659/PNG/512/3844435-home-house_110321.png" alt="calendar"/>
                 <div>달력</div>
             </button>
