@@ -51,5 +51,5 @@ registButton.addEventListener("click", () => {
     `mypokemonObj${pokemonLength + 1}`,
     JSON.stringify(pokemonObj)
   );
-  window.location.href = "/Chanwoo-Jeong.io/Week2-0408/StoreAssignment/index.html";
+  window.location.href = "./index.html";
 });
