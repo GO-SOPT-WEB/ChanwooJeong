@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { ChangeThemeBtn, ResetButton } from "../../components/Buttons";
-import { useEffect, useState } from "react";
+import { BigButton } from "../../components/Buttons";
+import { useEffect } from "react";
 import { ProgressBar } from "react-progressbar-fancy";
 
 const Wrapper = styled.header`
@@ -32,10 +32,10 @@ const ScoreBoard = styled.div`
 
 const StyledProgressBar = styled(ProgressBar)`
   width: 60%;
-  .number{
+  .number {
     display: none;
   }
-`
+`;
 
 const ButtonBox = styled.div`
   display: flex;
@@ -62,13 +62,15 @@ const Header = (props) => {
     if (goalCount === howManyCorrect) setIsModalOpen(true);
   }, [howManyCorrect, setIsModalOpen, goalCount]);
 
-  const percent = howManyCorrect / goalCount * 100
+  const percent = (howManyCorrect / goalCount) * 100;
 
   return (
     <>
       <Wrapper>
         <ButtonBox>
-          <ChangeThemeBtn setIsDark={setIsDark} />
+          <BigButton onClick={() => setIsDark((prev) => !prev)}>
+            Theme
+          </BigButton>
         </ButtonBox>
         <MainCenterBox>
           <h1>🐣포켓몬 카드 맞추기 게임🐣</h1>
@@ -82,12 +84,10 @@ const Header = (props) => {
               }[currentDifficulty]
             }
           </ScoreBoard>
-          <StyledProgressBar
-            score={percent}
-          />
+          <StyledProgressBar score={percent} />
         </MainCenterBox>
         <ButtonBox>
-          <ResetButton allReset={allReset} />
+          <BigButton onClick={allReset}>AllReset</BigButton>
         </ButtonBox>
       </Wrapper>
     </>
