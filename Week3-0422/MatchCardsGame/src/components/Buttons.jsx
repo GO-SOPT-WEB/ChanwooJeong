@@ -20,27 +20,12 @@ const ResetBtnWrapper = styled.button`
   }
 `;
 
+/** 헤더에 들어가는 큰 버튼 **/
+const BigButton = ({ children , ...props }) => {
 
-/** 전체 리셋 버튼 **/
-const ResetButton = (props) => {
-  const { allReset } = props;
-
-  return <ResetBtnWrapper onClick={allReset}>RESET</ResetBtnWrapper>;
+  return <ResetBtnWrapper {...props}>{children}</ResetBtnWrapper>;
 };
 
-const ChangeThemeWrapper = styled(ResetBtnWrapper)``;
-
-
-/** 테마 변경 버튼 **/  
-const ChangeThemeBtn = (props) => {
-  const { setIsDark } = props;
-
-  return (
-    <ChangeThemeWrapper onClick={() => setIsDark((prev) => !prev)}>
-      Theme
-    </ChangeThemeWrapper>
-  );
-};
 
 const DifficultyBtnWrapper = styled.button`
   width: 10rem;
@@ -67,7 +52,6 @@ const DifficultyBtnWrapper = styled.button`
     `};
 `;
 
-
 /** 난이도 변경 버튼 **/
 const DifficultyButton = (props) => {
   const { difficulty, setDifficulty, currentDifficulty, reset } = props;
@@ -90,4 +74,4 @@ const DifficultyButton = (props) => {
   );
 };
 
-export { ChangeThemeBtn, ResetButton, DifficultyButton };
+export { BigButton , DifficultyButton };
