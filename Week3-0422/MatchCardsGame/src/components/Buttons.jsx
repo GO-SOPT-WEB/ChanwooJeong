@@ -21,11 +21,9 @@ const ResetBtnWrapper = styled.button`
 `;
 
 /** 헤더에 들어가는 큰 버튼 **/
-const BigButton = ({ children , ...props }) => {
-
+const BigButton = ({ children, ...props }) => {
   return <ResetBtnWrapper {...props}>{children}</ResetBtnWrapper>;
 };
-
 
 const DifficultyBtnWrapper = styled.button`
   width: 10rem;
@@ -53,25 +51,8 @@ const DifficultyBtnWrapper = styled.button`
 `;
 
 /** 난이도 변경 버튼 **/
-const DifficultyButton = (props) => {
-  const { difficulty, setDifficulty, currentDifficulty, reset } = props;
-
-  const changeGameDifficulty = () => {
-    setDifficulty(difficulty);
-  };
-
-  return (
-    <DifficultyBtnWrapper
-      onClick={() => {
-        changeGameDifficulty();
-        reset();
-      }}
-      difficulty={difficulty}
-      currentDifficulty={currentDifficulty}
-    >
-      {difficulty}
-    </DifficultyBtnWrapper>
-  );
+const DifficultyButton = ({ children, ...props }) => {
+  return <DifficultyBtnWrapper {...props}>{children}</DifficultyBtnWrapper>;
 };
 
-export { BigButton , DifficultyButton };
+export { BigButton, DifficultyButton };
