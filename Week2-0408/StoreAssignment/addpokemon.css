@@ -1,0 +1,176 @@
+@font-face {
+    font-family: 'NeoDunggeunmoPro-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* body CSS */
+body {
+    font-family: 'NeoDunggeunmoPro-Regular';
+    background-color: rgb(252, 233, 233);
+
+}
+
+/* HeaderBar 관련 CSS */
+body>header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    position: fixed;
+    top: 0;
+
+    width: 100%;
+    padding: 1.25rem;
+    
+    background-color: #f8f8f8;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.logo {
+    color: #333;
+    font-size: 1.75rem;
+}
+
+#hamburger {
+    display: none;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: bold;
+    user-select: none;
+    cursor: pointer;
+}
+
+header aside {
+    display: flex;
+    flex-direction: row;
+
+}
+
+header aside a {
+    margin: 0 0.625rem;
+}
+
+header aside a:hover {
+    color: plum;
+}
+
+@media (max-width: 1000px) {
+    body>header {
+        padding: 1.25rem;
+    }
+
+    header>aside {
+        display: none;
+    }
+
+    header>aside a {
+        margin: 1rem;
+    }
+
+    #hamburger {
+        display: block;
+    }
+
+    #hamburger:hover+aside,
+    aside:hover {
+        display: flex;
+        flex-direction: column;
+
+        position: fixed;
+        top: 0;
+        right: 0;
+
+        width: 250px;
+        height: 100vh;
+        
+        padding: 1rem;
+        
+        background-color: #f8f8f8;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+}
+
+
+main {
+    display: flex;
+    justify-content: center;
+    margin: 5rem;
+}
+
+
+.regist-box {
+    width: 60%;
+    padding: 1.25rem;
+    
+    background-color: #f5f5f5;
+    border-radius: 0.625rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: xx-large;
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+}
+
+label {
+    margin-bottom: 0.3rem;
+    font-size: 1.125rem;
+}
+
+input[type="text"],
+select {
+    margin-top:0.3rem;
+    padding: 0.625rem;
+    
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    
+    font-size: 1rem;
+}
+
+input[type="file"] {
+    margin-top: 0.3rem;
+}
+
+
+
+#previewBox {
+    display: flex;
+    justify-content: center;
+}
+
+#previewBox #preview {
+    margin: 1rem;
+    width: 13rem;
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+button {
+    width: 100%;
+    padding: 0.625rem 1rem;
+    
+    border: none;
+    border-radius: 5px;
+    
+    background-color: #c0392b;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 1.125rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+button:hover {
+    background-color: #8e290c;
+}
