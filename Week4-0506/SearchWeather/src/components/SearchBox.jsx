@@ -34,7 +34,7 @@ const SearchInput = styled.input`
 
 const SearchBox = () => {
   const navigate = useNavigate();
-  const { period } = useParams();
+  const { period ,area } = useParams();
 
   useEffect(() => {
     if (period === undefined) return navigate(`/day`);
@@ -43,6 +43,7 @@ const SearchBox = () => {
 
   const navigatePeriod = (e) => {
     const selectedPeriod = e.target.value;
+    if(area) return navigate(`/${selectedPeriod}/${area}`);
     navigate(`/${selectedPeriod}`);
   };
 
