@@ -1,6 +1,6 @@
 import { Outlet, useParams } from "react-router-dom";
 import { styled } from "styled-components";
-import WeatherCard from "../components/WeatherCard";
+import WeatherCard from "./WeatherCard";
 
 const Wrapper = styled.div`
   width: 100%;

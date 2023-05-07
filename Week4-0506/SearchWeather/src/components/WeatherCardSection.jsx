@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { WEATER_TYPE } from "../assets/weatherImg";
+import BlankPanel from "./BlankPanel";
 
 const Wrapper = styled.div`
   display: flex;
@@ -11,9 +12,11 @@ const Wrapper = styled.div`
   justify-content: center;
   gap: 1rem;
 
-  width: 100%;
+  width: 70%;
   height: 63rem;
+  margin: 0 auto;
   margin-top: 3rem;
+  
   padding: 1rem;
 
   overflow-y: scroll;
@@ -63,7 +66,7 @@ const WeatherCardSection = () => {
   return (
     <Wrapper>
       {isError ? (
-        "데이터를 불러오는 도중 에러발생"
+        <BlankPanel />
       ) : isLoading ? (
         "데이터를 불러오는 중입니다"
       ) : data.main ? (
