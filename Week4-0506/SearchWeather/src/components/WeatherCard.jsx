@@ -57,10 +57,9 @@ const WeatherInfoDetailBox = styled.div`
 
 const WeatherCard = (props) => {
   const {period} = useParams()
-  const { cityName, feelsLike, temp, maxTemp, minTemp, weatherImg } = props;
+  const { feelsLike, temp, maxTemp, minTemp, weatherImg ,castDate ,clouds} = props;
 
   const today = new Date();
-  const year = today.getFullYear();
   const month = today.getMonth() + 1;
   const date = today.getDate();
 
@@ -70,10 +69,10 @@ const WeatherCard = (props) => {
 
   return (
     <Wrapper>
-      <header>{month}/{date}</header>
+      <header>{period === "day" ?`${month} / ${date}` : castDate}</header>
 
       <WeatherInfoDetailBox>
-        {/* <img src={weatherImgSrc.imgURL}></img> */}
+        <img src={weatherImgSrc.imgURL}></img>
         <div>
           <span>온도</span>
           <span>{temp}</span>
@@ -90,7 +89,7 @@ const WeatherCard = (props) => {
         </div>
         <div>
           <span>구름</span>
-          <span>0%</span>
+          <span>{clouds}%</span>
         </div>
       </WeatherInfoDetailBox>
     </Wrapper>
