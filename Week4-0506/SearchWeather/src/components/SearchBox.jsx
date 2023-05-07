@@ -44,7 +44,6 @@ const SearchBox = () => {
 
   const navigatePeriod = (e) => {
     const selectedPeriod = e.target.value;
-    console.log(selectedPeriod);
     navigate(`/${selectedPeriod}`);
   };
 
