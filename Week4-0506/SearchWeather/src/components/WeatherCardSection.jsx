@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import WeatherCard from "./WeatherCard";
 import { styled } from "styled-components";
 import { useParams } from "react-router-dom";
-import axios from "axios";
-import { WEATER_TYPE } from "../assets/weatherImg";
 import BlankPanel from "./BlankPanel";
+import WeatherHook from "../Hooks/WeatherHook";
 
 const Wrapper = styled.div`
   display: flex;
@@ -16,7 +15,7 @@ const Wrapper = styled.div`
   height: 63rem;
   margin: 0 auto;
   margin-top: 3rem;
-  
+
   padding: 1rem;
 
   overflow-y: scroll;
@@ -29,38 +28,7 @@ const Wrapper = styled.div`
 const WeatherCardSection = () => {
   const { period, area } = useParams();
 
-  const [data, setData] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-    setIsError(false);
-    let url;
-    if (period === "week")
-      url = `https://api.openweathermap.org/data/2.5/forecast?q=${area}&appid=${
-        import.meta.env.VITE_APP_WEATHER
-      }&units=metric`;
-    if (period === "day")
-      url = `https://api.openweathermap.org/data/2.5/weather?q=${area}&appid=${
-        import.meta.env.VITE_APP_WEATHER
-      }&units=metric`;
-
-    axios
-      .get(url)
-      .then((Response) => {
-        console.log(Response.data);
-        setData(Response.data);
-        setIsLoading(false);
-      })
-      .catch((Error) => {
-        setIsError(true);
-      });
-
-    return () => {};
-  }, [period, area]);
-
-  console.log(data);
+  const { data, isLoading, isError } = WeatherHook(period, area);
 
   const weekArr = [0, 8, 16, 23, 31];
   return (
