@@ -1,4 +1,4 @@
-import { Router } from "react-router-dom";
+import Router from "./Router";
 import GlobalStyle from "./styles/globalStyle";
 
 function App() {
