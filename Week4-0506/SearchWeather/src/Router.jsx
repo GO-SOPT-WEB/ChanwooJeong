@@ -1,5 +1,5 @@
-import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import SearchWeather from './pages/SearchWeather';
 
 const Router = () => {
     return (
@@ -7,10 +7,10 @@ const Router = () => {
               <>
                 <BrowserRouter>
                   <Routes>
-                    <Route path="/" element={} >
-                        <Route path=":period" element={}>
+                    <Route path="/" element={<SearchWeather />} >
+                        {/* <Route path=":period" element={}>
                             <Route path=":area" element={} />
-                        </Route>
+                        </Route> */}
                     </Route>
                   </Routes>
                 </BrowserRouter>
