@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { styled } from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -46,6 +46,14 @@ const SearchBox = () => {
     navigate(`/${selectedPeriod}`);
   };
 
+  const inputRef = useRef(null);
+
+  const handleKeyDown = (e) => {
+    if (e.keyCode !== 13) return;
+    const area = inputRef.current.value;
+    navigate(`/${period}/${area}`);
+  };
+
   return (
     <Wrapper>
       <PeriodDropDown>
@@ -59,7 +67,11 @@ const SearchBox = () => {
           <option value="week">Week</option>
         </select>
       </PeriodDropDown>
-      <SearchInput placeholder={`지역을 영어로 검색해보세요!`} />
+      <SearchInput
+        ref={inputRef}
+        placeholder={`지역을 영어로 검색해보세요!`}
+        onKeyDown={handleKeyDown}
+      />
     </Wrapper>
   );
 };
