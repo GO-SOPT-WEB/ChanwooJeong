@@ -72,6 +72,7 @@ const SearchBox = () => {
         ref={inputRef}
         placeholder={`지역을 영어로 검색해보세요!`}
         onKeyDown={handleKeyDown}
+        defaultValue={area}
       />
     </Wrapper>
   );
