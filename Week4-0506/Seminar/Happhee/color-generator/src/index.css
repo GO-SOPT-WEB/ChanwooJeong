@@ -1,0 +1,94 @@
+@font-face {
+  font-family: "KIMM_Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  font-family: "KIMM_Bold";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.colorGenerator_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  margin: 1rem;
+}
+
+input {
+  width: 50%;
+
+  background-color: #bface2;
+  border: 0.2rem solid #ebc7e6;
+}
+
+button {
+  padding: 0.5rem;
+
+  background-color: #bface2;
+  border: none;
+  border-radius: 1rem;
+
+  color: blueviolet;
+}
+
+button:hover {
+  background-color: blueviolet;
+  color: white;
+
+  cursor: pointer;
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 0.4rem;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 5rem;
+  padding: 1rem;
+
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #bface2;
+}
+
+.color-light .color-value {
+  color: white;
+}
+.color-light .percent-value {
+  color: white;
+}
+
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 1rem;
+  margin-top: 0.5rem;
+
+  border-radius: 1rem;
+  background-color: blueviolet;
+  color: white;
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #bface2;
+
+  font-size: 2rem;
+}
