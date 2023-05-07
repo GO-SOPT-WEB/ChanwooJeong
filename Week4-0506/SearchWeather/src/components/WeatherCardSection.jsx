@@ -12,8 +12,10 @@ const Wrapper = styled.div`
   gap: 1rem;
 
   width: 100%;
+  height: 50rem;
   padding: 1rem;
 
+  overflow: scroll;
   border: 2px solid blue;
 `;
 
@@ -45,36 +47,50 @@ const WeatherCardSection = () => {
         setIsLoading(false);
       })
       .catch((Error) => {
-        console.log(Error);
+        setIsError(true);
       });
 
     return () => {};
   }, [period, area]);
 
   console.log(data);
+
+  const weekArr = [0, 8, 16, 23, 31];
   return (
     <Wrapper>
-      {isError
-        ? "데이터를 불러오는 도중 에러발생"
-        : isLoading
-        ? "데이터를 불러오는 중입니다"
-        : data.main ? (
+      {isError ? (
+        "데이터를 불러오는 도중 에러발생"
+      ) : isLoading ? (
+        "데이터를 불러오는 중입니다"
+      ) : data.main ? (
+        <WeatherCard
+          key={data.name}
+          cityName={data.name}
+          temp={data.main.temp}
+          feelsLike={data.main.feels_like}
+          maxTemp={data.main.temp_max}
+          minTemp={data.main.temp_min}
+          clouds={data.clouds.all}
+          weatherImg={data.weather[0].description}
+        />
+      ) : (
+        data.list &&
+        weekArr.map((item) => {
+          return (
             <WeatherCard
-              feelsLike={data.main.feels_like}
-              cityName={data.name}
-              temp={data.main.temp}
-              maxTemp={data.main.temp_max}
-              minTemp={data.main.temp_min}
-              weatherImg={data.weather[0].description}
+              key={item}
+              cityName={data.city.name}
+              castDate={data.list[item].dt_txt}
+              temp={data.list[item].main.temp}
+              feelsLike={data.list[item].main.feels_like}
+              maxTemp={data.list[item].main.temp_max}
+              minTemp={data.list[item].main.temp_min}
+              clouds={data.list[item].clouds.all}
+              weatherImg={data.list[item].weather[0].description}
             />
-          ) : data.list && <WeatherCard
-        //   feelsLike={data.main.feels_like}
-        //   cityName={data.name}
-        //   temp={data.main.temp}
-        //   maxTemp={data.main.temp_max}
-        //   minTemp={data.main.temp_min}
-        //   weatherImg={data.weather[0].description}
-        />}
+          );
+        })
+      )}
     </Wrapper>
   );
 };
