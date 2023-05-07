@@ -7,11 +7,16 @@ const Wrapper = styled.div`
   border: 5px solid black;
 `;
 
+const BodySection = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+`;
+
 const PageLayout = ({ children }) => {
   return (
     <Wrapper>
       <Header />
-      {children}
+      <BodySection>{children}</BodySection>
     </Wrapper>
   );
 };
