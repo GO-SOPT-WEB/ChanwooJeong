@@ -8,6 +8,7 @@ const Wrapper = styled.article`
   flex-direction: column;
   overflow: hidden;
   width: 25rem;
+  height: fit-content;
 
   background-color: #fff;
   border-radius: 0.8rem;
@@ -17,10 +18,10 @@ const Wrapper = styled.article`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
     padding: 1rem;
     background-color: #1a73e8;
-    
+
     color: #fff;
     font-size: 1.8rem;
   }
@@ -56,20 +57,25 @@ const WeatherInfoDetailBox = styled.div`
 `;
 
 const WeatherCard = (props) => {
-  const {period} = useParams()
-  const { feelsLike, temp, maxTemp, minTemp, weatherImg ,castDate ,clouds} = props;
+  const { period } = useParams();
+  const { feelsLike, temp, maxTemp, minTemp, weatherImg, castDate, clouds } =
+    props;
 
   const today = new Date();
+  const year = today.getFullYear();
   const month = today.getMonth() + 1;
   const date = today.getDate();
 
+  const dateOnly = String(castDate).substring(0, 10);
   const weatherImgSrc = WEATER_TYPE.find(
     (item) => item.description === weatherImg
   );
 
   return (
     <Wrapper>
-      <header>{period === "day" ?`${month} / ${date}` : castDate}</header>
+      <header>
+        {period === "day" ? `${year} - ${month} - ${date}` : dateOnly}
+      </header>
 
       <WeatherInfoDetailBox>
         <img src={weatherImgSrc.imgURL}></img>

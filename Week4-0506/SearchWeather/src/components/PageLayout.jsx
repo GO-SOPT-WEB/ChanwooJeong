@@ -4,13 +4,13 @@ import Header from "./Header";
 const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  border: 5px solid black;
 `;
 
 const BodySection = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 50%);
+  grid-template-columns: 30% 70%;
   width: 100%;
+  height: calc(100vh - 10rem);
 `;
 
 const PageLayout = ({ children }) => {

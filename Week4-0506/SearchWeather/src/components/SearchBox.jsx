@@ -8,7 +8,6 @@ const Wrapper = styled.div`
   justify-content: center;
   width: 100%;
   padding: 2rem 1rem 0 1rem;
-  border: 3px solid purple;
 `;
 const PeriodDropDown = styled.div`
   display: flex;
@@ -26,10 +25,9 @@ const SearchInput = styled.input`
   height: 5rem;
   padding: 1rem;
 
-  font-size: 1.6rem;
+  font-size: 2rem;
   background: #ffffff;
   border-radius: 0.8rem;
-  border: solid 0.2rem black;
 `;
 
 const SearchBox = () => {

@@ -4,15 +4,13 @@ import WeatherCard from "../components/WeatherCard";
 
 const Wrapper = styled.div`
   width: 100%;
+  height: 100%;
   padding: 2rem;
-
-  border: 2px solid violet;
 `;
 const InfoBox = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-
   span {
     font-size: 3rem;
   }

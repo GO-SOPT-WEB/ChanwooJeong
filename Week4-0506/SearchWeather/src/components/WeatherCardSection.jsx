@@ -12,11 +12,15 @@ const Wrapper = styled.div`
   gap: 1rem;
 
   width: 100%;
-  height: 50rem;
+  height: 63rem;
+  margin-top: 3rem;
   padding: 1rem;
 
-  overflow: scroll;
-  border: 2px solid blue;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
 `;
 
 const WeatherCardSection = () => {
