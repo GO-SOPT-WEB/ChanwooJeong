@@ -10,6 +10,7 @@ const Wrapper = styled.div`
 const BodySection = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 50%);
+  width: 100%;
 `;
 
 const PageLayout = ({ children }) => {
