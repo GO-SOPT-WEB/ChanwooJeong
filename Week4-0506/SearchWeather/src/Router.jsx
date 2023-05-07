@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SearchWeather from './pages/SearchWeather';
 import WeatherInfoSection from './pages/WeatherInfoSection';
+import WeatherCardSection from './components/WeatherCardSection';
 
 const Router = () => {
     return (
@@ -10,7 +11,7 @@ const Router = () => {
                   <Routes>
                     <Route path="/" element={<SearchWeather />} >
                         <Route path=":period" element={<WeatherInfoSection />}>
-                            {/* <Route path=":area" element={} /> */}
+                            <Route path=":area" element={<WeatherCardSection />} />
                         </Route>
                     </Route>
                   </Routes>
