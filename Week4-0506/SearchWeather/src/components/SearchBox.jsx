@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { styled } from "styled-components";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Wrapper = styled.div`
   display: flex;
@@ -17,7 +18,7 @@ const PeriodDropDown = styled.div`
   padding-left: 0;
 
   select {
-    width: 10rem;
+    width: 15rem;
     font-size: 2rem;
   }
 `;
@@ -33,10 +34,29 @@ const SearchInput = styled.input`
 `;
 
 const SearchBox = () => {
+  const navigate = useNavigate();
+  const { period } = useParams();
+
+  useEffect(() => {
+    if (period === undefined) return navigate(`/day`);
+    return () => {};
+  }, [period]);
+
+  const navigatePeriod = (e) => {
+    const selectedPeriod = e.target.value;
+    console.log(selectedPeriod);
+    navigate(`/${selectedPeriod}`);
+  };
+
   return (
     <Wrapper>
       <PeriodDropDown>
-        <select name="period" id="periodFilter">
+        <select
+          name="period"
+          id="periodFilter"
+          defaultValue={period}
+          onChange={navigatePeriod}
+        >
           <option value="day">Day</option>
           <option value="week">Week</option>
         </select>
