@@ -1,11 +1,12 @@
+import GlobalStyle from "./styles/globalStyle";
+
 function App() {
-
-
   return (
     <>
-     SearchWeather
+      <GlobalStyle />
+      SearchWeather
     </>
-  )
+  );
 }
 
-export default App
+export default App;
