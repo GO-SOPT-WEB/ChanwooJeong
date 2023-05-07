@@ -3,6 +3,7 @@ import WeatherCard from "./WeatherCard";
 import { styled } from "styled-components";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { WEATER_TYPE } from "../assets/weatherImg";
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,50 +20,61 @@ const Wrapper = styled.div`
 const WeatherCardSection = () => {
   const { period, area } = useParams();
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    const getWeatherData = async () => {
-      setIsLoading(true);
-      setIsError(false);
-      let url;
-      if (period === "week")
-        url = `https://api.openweathermap.org/data/2.5/forecast?q=${area}&appid=${
-          import.meta.env.VITE_APP_WEATHER
-        }&units=metric`;
-      if (period === "day")
-        url = `https://api.openweathermap.org/data/2.5/weather?q=${area}&appid=${
-          import.meta.env.VITE_APP_WEATHER
-        }&units=metric`;
-      try {
-        const result = await axios.get(url);
-        setData(result.data);
-      } catch (error) {
-        setIsError(true);
-      }
-      setIsLoading(false);
-    };
+    setIsLoading(true);
+    setIsError(false);
+    let url;
+    if (period === "week")
+      url = `https://api.openweathermap.org/data/2.5/forecast?q=${area}&appid=${
+        import.meta.env.VITE_APP_WEATHER
+      }&units=metric`;
+    if (period === "day")
+      url = `https://api.openweathermap.org/data/2.5/weather?q=${area}&appid=${
+        import.meta.env.VITE_APP_WEATHER
+      }&units=metric`;
 
-    getWeatherData();
+    axios
+      .get(url)
+      .then((Response) => {
+        console.log(Response.data);
+        setData(Response.data);
+        setIsLoading(false);
+      })
+      .catch((Error) => {
+        console.log(Error);
+      });
+
+    return () => {};
   }, [period, area]);
 
-  console.log(data, isLoading, isError);
-
-  // 주간 날씨 조회
-  // https://api.openweathermap.org/data/2.5/forecast?q=${area}&appid=${import.meta.env.VITE_APP_WEATHER}&units=metric
-
-  // 오늘 날씨 조회
-  // https://api.openweathermap.org/data/2.5/weather?q=${area}&appid=${import.meta.env.VITE_APP_WEATHER}&units=metric
-
+  console.log(data);
   return (
     <Wrapper>
-      <WeatherCard />
-      <WeatherCard />
-      <WeatherCard />
-      <WeatherCard />
-      <WeatherCard />
+      {isError
+        ? "데이터를 불러오는 도중 에러발생"
+        : isLoading
+        ? "데이터를 불러오는 중입니다"
+        : data.main ? (
+            <WeatherCard
+              feelsLike={data.main.feels_like}
+              cityName={data.name}
+              temp={data.main.temp}
+              maxTemp={data.main.temp_max}
+              minTemp={data.main.temp_min}
+              weatherImg={data.weather[0].description}
+            />
+          ) : data.list && <WeatherCard
+        //   feelsLike={data.main.feels_like}
+        //   cityName={data.name}
+        //   temp={data.main.temp}
+        //   maxTemp={data.main.temp_max}
+        //   minTemp={data.main.temp_min}
+        //   weatherImg={data.weather[0].description}
+        />}
     </Wrapper>
   );
 };
