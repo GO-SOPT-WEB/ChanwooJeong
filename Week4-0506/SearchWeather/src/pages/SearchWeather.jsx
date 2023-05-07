@@ -1,11 +1,7 @@
 import PageLayout from "../components/PageLayout";
 
 const SearchWeather = () => {
-    return (
-        <PageLayout>
-            SearchWeather
-        </PageLayout>
-    );
+  return <PageLayout></PageLayout>;
 };
 
 export default SearchWeather;

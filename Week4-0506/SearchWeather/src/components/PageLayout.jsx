@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import Header from "./Header";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -6,9 +7,13 @@ const Wrapper = styled.div`
   border: 5px solid black;
 `;
 
-
 const PageLayout = ({ children }) => {
-  return <Wrapper>{children}</Wrapper>;
+  return (
+    <Wrapper>
+      <Header />
+      {children}
+    </Wrapper>
+  );
 };
 
 export default PageLayout;
