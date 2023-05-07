@@ -6,9 +6,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
   width: 100%;
-  padding: 1rem;
+  padding: 2rem 1rem 0 1rem;
   border: 3px solid purple;
 `;
 const PeriodDropDown = styled.div`
