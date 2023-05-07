@@ -7,9 +7,10 @@ const Router = () => {
               <>
                 <BrowserRouter>
                   <Routes>
-                    <Route path="/" element={} />
-                    <Route path="/:period" element={}>
-                      <Route path=":area" element={} />
+                    <Route path="/" element={} >
+                        <Route path=":period" element={}>
+                            <Route path=":area" element={} />
+                        </Route>
                     </Route>
                   </Routes>
                 </BrowserRouter>
