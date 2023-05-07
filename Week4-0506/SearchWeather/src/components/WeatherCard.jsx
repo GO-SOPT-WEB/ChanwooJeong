@@ -34,14 +34,43 @@ const Wrapper = styled.article`
   }
 `;
 
+const WeatherInfoDetailBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  div {
+    display: flex;
+    justify-content: space-between;
+    span {
+      font-size: 1.5rem;
+    }
+  }
+`;
+
 const WeatherCard = () => {
   return (
     <Wrapper>
       <header>날씨</header>
-      <p>
-        <span>이게내용</span>
-        <span>이게 온도</span>
-      </p>
+      <img></img>
+      <WeatherInfoDetailBox>
+        <div>
+          <span>온도</span>
+          <span>12.29</span>
+        </div>
+        <div>
+          <span>체감 온도</span>
+          <span>11.09</span>
+        </div>
+        <div>
+          <span>최저 / 최고</span>
+          <span>10.66 / 14.69</span>
+        </div>
+        <div>
+          <span>구름</span>
+          <span>0%</span>
+        </div>
+      </WeatherInfoDetailBox>
     </Wrapper>
   );
 };
