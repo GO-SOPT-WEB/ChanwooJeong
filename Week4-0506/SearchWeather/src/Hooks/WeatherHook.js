@@ -8,6 +8,7 @@ const WeatherHook = (period, area) => {
 
   useEffect(() => {
     setIsLoading(true)
+    setIsError(false)
     let url;
     if (period === "week")
       url = `https://api.openweathermap.org/data/2.5/forecast?q=${area}&appid=${
