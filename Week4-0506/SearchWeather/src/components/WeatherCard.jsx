@@ -45,6 +45,8 @@ const WeatherInfoDetailBox = styled.div`
   gap: 0.5rem;
   padding: 1.5rem;
   img {
+    width: 22rem;
+    height: 13rem;
     padding: 0rem 6rem 3rem 6rem;
   }
   div {
@@ -78,7 +80,7 @@ const WeatherCard = (props) => {
       </header>
 
       <WeatherInfoDetailBox>
-        <img src={weatherImgSrc.imgURL}></img>
+        <img src={weatherImgSrc && weatherImgSrc.imgURL} alt="날씨이미지"></img>
         <div>
           <span>온도</span>
           <span>{temp}</span>
