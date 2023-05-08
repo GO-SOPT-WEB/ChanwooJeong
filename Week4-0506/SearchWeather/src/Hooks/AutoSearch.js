@@ -24,9 +24,11 @@ const AutoSearch = () => {
 
     const searchResult = howManyalphabethave(cityList, keyword);
     setAutoSearchResult(searchResult);
+
+    return ()=>{}
   }, [keyword, cityList]);
 
-  return { setKeyword, autoSearchResult };
+  return {keyword , setKeyword, autoSearchResult };
 };
 
 export default AutoSearch;

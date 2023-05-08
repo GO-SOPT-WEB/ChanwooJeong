@@ -56,8 +56,12 @@ const AutoSearchContainer = styled.div`
       background-color: #fff;
       border-radius: 0.8rem;
       box-shadow: 0px 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
-      
+
       cursor: pointer;
+
+      &:hover {
+        background-color: palevioletred;
+      }
     }
   }
 `;
@@ -85,8 +89,12 @@ const SearchBox = () => {
     navigate(`/${period}/${area}`);
   };
 
-  const { setKeyword, autoSearchResult } = AutoSearch();
-  console.log(autoSearchResult);
+  const handleClickArea = (cityName) => {
+    navigate(`/${period}/${cityName}`);
+    setKeyword(cityName);
+  };
+
+  const { keyword, setKeyword, autoSearchResult } = AutoSearch();
 
   return (
     <Wrapper>
@@ -105,13 +113,15 @@ const SearchBox = () => {
         ref={inputRef}
         placeholder={`지역을 영어로 검색해보세요!`}
         onKeyDown={handleKeyDown}
-        defaultValue={area}
+        value={keyword}
         onChange={(e) => setKeyword(e.target.value)}
       />
       <AutoSearchContainer>
         <ul>
           {autoSearchResult.map((cityName) => (
-            <li>{cityName}</li>
+            <li key={cityName} onClick={() => handleClickArea(cityName)}>
+              {cityName}
+            </li>
           ))}
         </ul>
       </AutoSearchContainer>
