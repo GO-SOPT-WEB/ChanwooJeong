@@ -87,7 +87,6 @@ const SkeletonCard = () => {
   return (
     <Wrapper>
       <header></header>
-
       <p>
         <div></div>
         <span></span>
