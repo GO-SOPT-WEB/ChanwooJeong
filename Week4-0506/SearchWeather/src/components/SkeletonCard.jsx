@@ -37,45 +37,43 @@ const Wrapper = styled.article`
       animation: loading 2s infinite linear;
     }
   }
-  p {
+  div {
     display: flex;
     justify-content: center;
     width: 250px;
     height: 240px;
-    padding: 2rem 3rem;
 
     div {
       width: 13rem;
-      height: 13rem;
+      height: 11rem;
       position: absolute;
       overflow: hidden;
       background-color: #ddd;
-      margin: 0 auto;
+      margin: 1rem auto;
 
       &::before {
-        content: "";
-        position: absolute;
-
-        width: 30px;
-        height: 14rem;
-        background: linear-gradient(to right, #f2f2f2, #ddd, #f2f2f2);
-        animation: loading 2s infinite linear;
-      }
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 30px;
+      height: 11rem;
+      background: linear-gradient(to right, #f2f2f2, #ddd, #f2f2f2);
+      animation: loading 2s infinite linear;
+    }
     }
 
     span {
       position: absolute;
       bottom: 1rem;
       width: 22rem;
-      height: 6rem;
+      height: 8rem;
       background-color: #ddd;
       overflow: hidden;
-
       &::before {
         content: "";
         position: absolute;
         width: 30px;
-        height: 6rem;
+        height: 8rem;
         background: linear-gradient(to right, #f2f2f2, #ddd, #f2f2f2);
         animation: loading 2s infinite linear;
       }
@@ -87,10 +85,11 @@ const SkeletonCard = () => {
   return (
     <Wrapper>
       <header></header>
-      <p>
+
+      <div>
         <div></div>
         <span></span>
-      </p>
+      </div>
     </Wrapper>
   );
 };

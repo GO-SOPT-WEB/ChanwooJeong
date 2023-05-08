@@ -25,18 +25,6 @@ const Wrapper = styled.article`
     color: #fff;
     font-size: 1.8rem;
   }
-  p {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 1.6rem;
-
-    font-size: 1.6rem;
-
-    span {
-      margin-right: 8px;
-    }
-  }
 `;
 
 const WeatherInfoDetailBox = styled.div`

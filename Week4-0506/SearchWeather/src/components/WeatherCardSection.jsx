@@ -40,7 +40,7 @@ const WeatherCardSection = () => {
         period === "day" ? (
           <SkeletonCard />
         ) : (
-          weekArr.map(() => <SkeletonCard />)
+          weekArr.map((el) => <SkeletonCard key={el} />)
         )
       ) : data.main ? (
         <WeatherCard
