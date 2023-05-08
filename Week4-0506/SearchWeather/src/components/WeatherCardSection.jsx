@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 import { useParams } from "react-router-dom";
 import BlankPanel from "./BlankPanel";
 import WeatherHook from "../Hooks/WeatherHook";
+import SkeletonCard from "./SkeletonCard";
 
 const Wrapper = styled.div`
   display: flex;
@@ -36,7 +37,11 @@ const WeatherCardSection = () => {
       {isError ? (
         <BlankPanel />
       ) : isLoading ? (
-        "데이터를 불러오는 중입니다"
+        period === "day" ? (
+          <SkeletonCard />
+        ) : (
+          weekArr.map(() => <SkeletonCard />)
+        )
       ) : data.main ? (
         <WeatherCard
           key={data.name}
