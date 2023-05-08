@@ -19,6 +19,8 @@ const PeriodDropDown = styled.div`
   select {
     width: 15rem;
     font-size: 2rem;
+    box-shadow: 0px 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.8rem;
   }
 `;
 const SearchInput = styled.input`
@@ -27,7 +29,10 @@ const SearchInput = styled.input`
   padding: 1rem;
 
   font-size: 2rem;
-  background: #ffffff;
+
+  background-color: #fff;
+  box-shadow: 0px 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+  border: none;
   border-radius: 0.8rem;
 `;
 

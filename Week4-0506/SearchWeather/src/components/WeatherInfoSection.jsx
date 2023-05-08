@@ -22,8 +22,8 @@ const WeatherInfoSection = () => {
   return (
     <Wrapper>
       <InfoBox>
-        <span>날씨예보 : {period === "day" ? "오늘" : "주간"} </span>
-        <span> 지역 : {area}</span>
+        <span>📅 날씨예보 : {period === "day" ? "오늘" : "주간"} </span>
+        <span>📌 지역 : {area}</span>
       </InfoBox>
       <Outlet />
     </Wrapper>
