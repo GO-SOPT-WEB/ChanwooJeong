@@ -1,11 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { styled } from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
+import AutoSearch from "../Hooks/autoSearch";
+import { cityList } from "../assets/cityList";
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
   width: 100%;
   padding: 2rem 1rem 0 1rem;
 `;
@@ -30,9 +31,40 @@ const SearchInput = styled.input`
   border-radius: 0.8rem;
 `;
 
+const AutoSearchContainer = styled.div`
+  height: 65rem;
+  margin: 1rem;
+
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    display: none;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    li {
+      width: 100%;
+      padding: 1rem;
+      font-size: 2rem;
+      background-color: #fff;
+      border-radius: 0.8rem;
+      box-shadow: 0px 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+      
+      cursor: pointer;
+    }
+  }
+`;
+
 const SearchBox = () => {
   const navigate = useNavigate();
-  const { period ,area } = useParams();
+  const { period, area } = useParams();
 
   useEffect(() => {
     if (period === undefined) return navigate(`/day`);
@@ -41,7 +73,7 @@ const SearchBox = () => {
 
   const navigatePeriod = (e) => {
     const selectedPeriod = e.target.value;
-    if(area) return navigate(`/${selectedPeriod}/${area}`);
+    if (area) return navigate(`/${selectedPeriod}/${area}`);
     navigate(`/${selectedPeriod}`);
   };
 
@@ -52,6 +84,9 @@ const SearchBox = () => {
     const area = inputRef.current.value;
     navigate(`/${period}/${area}`);
   };
+
+  const { setKeyword, autoSearchResult } = AutoSearch();
+  console.log(autoSearchResult);
 
   return (
     <Wrapper>
@@ -71,7 +106,15 @@ const SearchBox = () => {
         placeholder={`지역을 영어로 검색해보세요!`}
         onKeyDown={handleKeyDown}
         defaultValue={area}
+        onChange={(e) => setKeyword(e.target.value)}
       />
+      <AutoSearchContainer>
+        <ul>
+          {autoSearchResult.map((cityName) => (
+            <li>{cityName}</li>
+          ))}
+        </ul>
+      </AutoSearchContainer>
     </Wrapper>
   );
 };
