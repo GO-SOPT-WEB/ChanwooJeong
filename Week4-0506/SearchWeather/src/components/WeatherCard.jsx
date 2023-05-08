@@ -65,8 +65,10 @@ const WeatherCard = (props) => {
 
   const today = new Date();
   const year = today.getFullYear();
-  const month = today.getMonth() + 1;
-  const date = today.getDate();
+  let month = String(today.getMonth() + 1);
+  let date = String(today.getDate());
+  if (month.length === 1) month = "0" + month;
+  if (date.length === 1) date = "0" + date;
 
   const dateOnly = String(castDate).substring(0, 10);
   const weatherImgSrc = WEATER_TYPE.find(
