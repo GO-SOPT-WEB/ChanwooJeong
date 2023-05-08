@@ -74,11 +74,13 @@ const AutoSearchContainer = styled.div`
 const SearchBox = () => {
   const navigate = useNavigate();
   const { period, area } = useParams();
+  const { keyword, setKeyword, autoSearchResult } = AutoSearch();
 
   useEffect(() => {
     if (period === undefined) return navigate(`/day`);
+    if(area) setKeyword(area)
     return () => {};
-  }, [period]);
+  }, [period ,area]);
 
   const navigatePeriod = (e) => {
     const selectedPeriod = e.target.value;
@@ -99,7 +101,7 @@ const SearchBox = () => {
     setKeyword(cityName);
   };
 
-  const { keyword, setKeyword, autoSearchResult } = AutoSearch();
+  
 
   return (
     <Wrapper>
