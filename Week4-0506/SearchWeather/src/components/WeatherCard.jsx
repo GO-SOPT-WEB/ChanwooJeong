@@ -70,7 +70,7 @@ const WeatherCard = (props) => {
       </header>
 
       <WeatherInfoDetailBox>
-        <img src={weatherImgSrc && weatherImgSrc.imgURL} alt="날씨이미지"></img>
+        <img src={weatherImgSrc?.imgURL} alt="날씨이미지"></img>
         <div>
           <span>온도</span>
           <span>{temp}</span>
