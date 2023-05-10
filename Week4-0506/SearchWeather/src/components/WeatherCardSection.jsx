@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import WeatherCard from "./WeatherCard";
 import { styled } from "styled-components";
 import { useParams } from "react-router-dom";

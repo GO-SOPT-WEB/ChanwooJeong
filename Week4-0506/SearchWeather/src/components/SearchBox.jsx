@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { styled } from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 import AutoSearch from "../Hooks/autoSearch";
-import { cityList } from "../assets/cityList";
 
 const Wrapper = styled.div`
   display: flex;

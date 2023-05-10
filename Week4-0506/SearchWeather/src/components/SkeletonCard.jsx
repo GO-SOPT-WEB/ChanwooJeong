@@ -8,7 +8,6 @@ const Wrapper = styled.article`
   position: relative;
   width: 25rem;
   height: fit-content;
-  z-index: 2;
 
   background-color: #fff;
   border-radius: 0.8rem;
