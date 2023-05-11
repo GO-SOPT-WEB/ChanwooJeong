@@ -107,6 +107,7 @@ const addCategoryTodo = (todoDataArr) => {
   });
 };
 
+//할일 추가하는 함수
 const addTodo = (category, newTodo) => {
   const parsedlocalData = localStorageApi.getItemReturnParse("todoData")
 
@@ -133,6 +134,7 @@ const addTodo = (category, newTodo) => {
   countFinishedTodo();
 };
 
+//모달 생성함수
 const createModal = () => {
   const addTodoInput = document.querySelector("#addTodoInput");
   const addTodoBtn = document.querySelector("#addTodoBtn");
@@ -147,13 +149,13 @@ const createModal = () => {
     addTodo(categoryName, addTodoInput.value);
 
     const addTodoModal = document.querySelector(".addTodoModal");
-    document.querySelector("#addTodoInput").value = " ";
+    document.querySelector("#addTodoInput").value = "";
     addTodoModal.style.display = "none";
   });
 };
 
 //모든 DOM이 그려지면 진행되는 코드
-window.onload = function () {
+const todoJS = () => {
   // 로컬스토리지 확인후 값이 없다면 기존의 값을 로컬에 추가한후 투두리스트 생성 있다면 있는 데이터 가져오기
   if (!localStorageApi.getItem("todoData")) {
     localStorageApi.setItem("todoData", JSON.stringify(TODO_DATA));
@@ -168,3 +170,5 @@ window.onload = function () {
   //모달에서 할일을 추가할때 사용되는 로직 생성
   createModal();
 };
+
+export default todoJS

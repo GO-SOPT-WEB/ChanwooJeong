@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //명령형 프로그래밍
+        const numberList = [1, 2, 3, 4, 5, 6];
+        let declarationSum = 0;
+        for (let idx = 0; idx < numberList.length; idx++) {
+            if (idx % 2) {
+                declarationSum += numberList[idx];
+            }
+        }
+
+        //선언형 프로그래밍 (js나 리액트에서 이걸 좀 더 선호)
+        const commandSum = numberList
+            .filter((_, idx) => idx % 2)
+            .reduce((acc, num) => acc + num, 0);
+
+        console.log(commandSum);
+    </script>
+</body>
+
+</html>

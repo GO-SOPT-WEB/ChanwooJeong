@@ -104,7 +104,7 @@ const addCardItem = (filteredCard) => {
     let html = element.innerHTML;
     html = html.replace("{pokemonName}", card.name);
     html = html.replace("{img}", card.img);
-    html = html.replace("{poketmonImg}", `${card.name} 이미지`);
+    html = html.replace("{pokemonImg}", `${card.name} 이미지`);
     html = html.replace("{JJimN}", `JJimN${i}`);
     html = html.replace("{JJimN}", `JJimN${i}`);
     element.innerHTML = html;
