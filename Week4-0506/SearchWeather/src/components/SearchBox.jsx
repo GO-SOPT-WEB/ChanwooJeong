@@ -73,34 +73,38 @@ const AutoSearchContainer = styled.div`
 const SearchBox = () => {
   const navigate = useNavigate();
   const { period, area } = useParams();
-  const { keyword, setKeyword, autoSearchResult } = AutoSearch();
 
+  /** 검색 자동완성 기능 Hook */
+  const { keyword, setKeyword, autoSearchResult } = AutoSearch();
+  /** 검색창 useRef */
+  const inputRef = useRef(null);
+
+  /** 처음 로딩시 자동으로 day(오늘로 설정) */
   useEffect(() => {
     if (period === undefined) return navigate(`/day`);
-    if(area) setKeyword(area)
+    if (area) setKeyword(area);
     return () => {};
-  }, [period ,area]);
+  }, [period, area]);
 
+  /** 오늘 혹은 주간 변경시 라우팅 이동 */
   const navigatePeriod = (e) => {
     const selectedPeriod = e.target.value;
     if (area) return navigate(`/${selectedPeriod}/${area}`);
     navigate(`/${selectedPeriod}`);
   };
 
-  const inputRef = useRef(null);
-
+  /** 검색창 엔터 키 시 날씨정보 받아오는 곳으로 라우팅 */
   const handleKeyDown = (e) => {
     if (e.keyCode !== 13) return;
     const area = inputRef.current.value;
     navigate(`/${period}/${area}`);
   };
 
+  /** 자동완성 도시 리스트에서 클릭시 라우팅 */
   const handleClickArea = (cityName) => {
     navigate(`/${period}/${cityName}`);
     setKeyword(cityName);
   };
-
-  
 
   return (
     <Wrapper>

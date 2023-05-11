@@ -29,6 +29,7 @@ const Wrapper = styled.div`
 const WeatherCardSection = () => {
   const { period, area } = useParams();
 
+  /** 날씨 데이터 불러오는 Hook*/
   const { data, isLoading, isError } = WeatherHook(period, area);
 
   const weekArr = [0, 8, 16, 23, 31];

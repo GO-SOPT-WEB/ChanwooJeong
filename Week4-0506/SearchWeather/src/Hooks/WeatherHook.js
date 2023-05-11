@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 
+/** 날씨 데이터 받아오는 Hook */
 const WeatherHook = (period, area) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
