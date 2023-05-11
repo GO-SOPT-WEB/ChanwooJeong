@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { styled } from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
-import AutoSearch from "../Hooks/autoSearch";
+import AutoSearch from "../Hooks/AutoSearch";
 
 const Wrapper = styled.div`
   display: flex;

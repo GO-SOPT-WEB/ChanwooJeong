@@ -51,7 +51,7 @@ const WeatherCard = (props) => {
   const { feelsLike, temp, maxTemp, minTemp, weatherImg, castDate, clouds } =
     props;
 
-  /** 오늘일 경우]날짜세팅 로직 */  
+  /** 오늘일 경우]날짜세팅 로직 */
   const today = new Date();
   const year = today.getFullYear();
   let month = String(today.getMonth() + 1);
@@ -61,7 +61,7 @@ const WeatherCard = (props) => {
 
   /** 주간인 경우 날짜세팅 */
   const dateOnly = String(castDate).substring(0, 10);
-  
+
   /** 날씨이미지 찾아오기 */
   const weatherImgSrc = WEATER_TYPE.find(
     (item) => item.description === weatherImg
