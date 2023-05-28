@@ -59,6 +59,7 @@ const MatchCardsGame = (props) => {
 
   /** 모달 열고 닫는 useState */
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
   return (
     <>
       <Wrapper>
