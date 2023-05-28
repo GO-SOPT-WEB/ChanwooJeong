@@ -25,18 +25,6 @@ const Wrapper = styled.article`
     color: #fff;
     font-size: 1.8rem;
   }
-  p {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 1.6rem;
-
-    font-size: 1.6rem;
-
-    span {
-      margin-right: 8px;
-    }
-  }
 `;
 
 const WeatherInfoDetailBox = styled.div`
@@ -63,6 +51,7 @@ const WeatherCard = (props) => {
   const { feelsLike, temp, maxTemp, minTemp, weatherImg, castDate, clouds } =
     props;
 
+  /** 오늘일 경우]날짜세팅 로직 */
   const today = new Date();
   const year = today.getFullYear();
   let month = String(today.getMonth() + 1);
@@ -70,7 +59,10 @@ const WeatherCard = (props) => {
   if (month.length === 1) month = "0" + month;
   if (date.length === 1) date = "0" + date;
 
+  /** 주간인 경우 날짜세팅 */
   const dateOnly = String(castDate).substring(0, 10);
+
+  /** 날씨이미지 찾아오기 */
   const weatherImgSrc = WEATER_TYPE.find(
     (item) => item.description === weatherImg
   );
@@ -82,7 +74,7 @@ const WeatherCard = (props) => {
       </header>
 
       <WeatherInfoDetailBox>
-        <img src={weatherImgSrc && weatherImgSrc.imgURL} alt="날씨이미지"></img>
+        <img src={weatherImgSrc?.imgURL} alt="날씨이미지"></img>
         <div>
           <span>온도</span>
           <span>{temp}</span>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import WeatherCard from "./WeatherCard";
 import { styled } from "styled-components";
 import { useParams } from "react-router-dom";
@@ -29,6 +29,7 @@ const Wrapper = styled.div`
 const WeatherCardSection = () => {
   const { period, area } = useParams();
 
+  /** 날씨 데이터 불러오는 Hook*/
   const { data, isLoading, isError } = WeatherHook(period, area);
 
   const weekArr = [0, 8, 16, 23, 31];
@@ -40,7 +41,7 @@ const WeatherCardSection = () => {
         period === "day" ? (
           <SkeletonCard />
         ) : (
-          weekArr.map(() => <SkeletonCard />)
+          weekArr.map((el) => <SkeletonCard key={el} />)
         )
       ) : data.main ? (
         <WeatherCard

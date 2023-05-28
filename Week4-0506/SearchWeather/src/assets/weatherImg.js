@@ -41,6 +41,11 @@ export const WEATER_TYPE = [
         "https://i.pinimg.com/236x/32/86/d9/3286d9a785a9db5e15f7422a96d757fc.jpg",
     },
     {
+      description: "light rain",
+      imgURL:
+        "https://media.istockphoto.com/id/1392278078/ko/%EB%B2%A1%ED%84%B0/%EB%B9%97%EB%B0%A9%EC%9A%B8%EC%9D%B4%EC%9E%88%EB%8A%94-%ED%83%9C%EC%96%91%EA%B3%BC-%EA%B5%AC%EB%A6%84-%EB%82%A0%EC%94%A8-%EA%B0%9C%EB%85%90-3d-%EB%B2%A1%ED%84%B0-%EC%95%84%EC%9D%B4%EC%BD%98%EC%9E%85%EB%8B%88%EB%8B%A4-%EB%A7%8C%ED%99%94-%EC%B5%9C%EC%86%8C-%EC%8A%A4%ED%83%80%EC%9D%BC.jpg?b=1&s=170667a&w=0&k=20&c=J9W7kGm54XRYABT4VTfEFC3Kb60_3ROZRL9WbeVFEYc=",
+    },
+    {
       description: "thunderstorm",
       imgURL:
         "https://i.pinimg.com/236x/5c/ed/0f/5ced0fae87292feba7fe373881e3937d.jpg",

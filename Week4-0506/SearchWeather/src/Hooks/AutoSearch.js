@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { cityList } from "../assets/cityList";
 
+/** 도시 검색시 cityList 자동완성 검색 기능 */
 const AutoSearch = () => {
   const [keyword, setKeyword] = useState("");
   const [autoSearchResult, setAutoSearchResult] = useState([]);

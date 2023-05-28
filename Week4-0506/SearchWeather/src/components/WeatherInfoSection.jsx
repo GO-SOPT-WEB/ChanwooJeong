@@ -1,6 +1,7 @@
-import { Outlet, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 import { styled } from "styled-components";
-import WeatherCard from "./WeatherCard";
+import BlankPanel from "./BlankPanel";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -11,6 +12,7 @@ const InfoBox = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  margin-bottom: 1rem;
   span {
     font-size: 3rem;
   }
@@ -25,7 +27,7 @@ const WeatherInfoSection = () => {
         <span>📅 날씨예보 : {period === "day" ? "오늘" : "주간"} </span>
         <span>📌 지역 : {area}</span>
       </InfoBox>
-      <Outlet />
+      {period !== "day" && period !== "week" ? <BlankPanel /> : <Outlet />}
     </Wrapper>
   );
 };
