@@ -3,6 +3,7 @@ import MatchCardsGame from "./Pages/MatchCardsGame";
 import { createGlobalStyle } from "styled-components";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "./assets/theme";
+import { RecoilRoot } from "recoil";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -76,7 +77,9 @@ function App() {
     <>
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <GlobalStyle />
-        <MatchCardsGame setIsDark={setIsDark} />
+        <RecoilRoot>
+          <MatchCardsGame setIsDark={setIsDark} />
+        </RecoilRoot>
       </ThemeProvider>
     </>
   );

@@ -2,20 +2,15 @@ import styled from "styled-components";
 import Header from "./layout/Header";
 import DifficultySection from "./layout/DifficultySection";
 import CardsSection from "./layout/CardsSection";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import ModalPortal from "./utils/modalPortal";
 import Modal from "../components/Modal";
 
-const Wrapper = styled.div`
-  width: 100%;
-  height: 100vh;
+interface DarkModeProps {
+  setIsDark : Dispatch<SetStateAction<boolean>>
+}
 
-  overflow: scroll;
-  overflow-x: hidden;
-  background-color: ${(props) => props.theme.bgColor};
-`;
-
-const MatchCardsGame = (props) => {
+const MatchCardsGame = (props : DarkModeProps) => {
   const { setIsDark } = props;
 
   //첫 난이도 설정
@@ -23,11 +18,11 @@ const MatchCardsGame = (props) => {
 
   /** 전체 리셋 + 난이도 Easy로 변경하는 리셋함수 */
   const allReset = () => {
-    reSet();
-    setDifficulty("Easy");
-  };
+      reSet();
+      setDifficulty("Easy");
+    };
 
-    /** 단순 카드만 리셋하는 함수 */
+  /** 단순 카드만 리셋하는 함수 */
   const reSet = () => {
     setMatchingArr([]);
     setMatchedArr([]);
@@ -94,3 +89,12 @@ const MatchCardsGame = (props) => {
 };
 
 export default MatchCardsGame;
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+
+  overflow: scroll;
+  overflow-x: hidden;
+  background-color: ${(props) => props.theme.bgColor};
+`;
