@@ -61,7 +61,6 @@ const MatchCardsGame = () => {
     <>
       <Wrapper>
         <Header
-          allReset={allReset}
           setIsModalOpen={setIsModalOpen}
         />
         <DifficultySection />
