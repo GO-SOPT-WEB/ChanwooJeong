@@ -5,8 +5,8 @@ import CardsSection from "./layout/CardsSection";
 import { Dispatch, SetStateAction, useState } from "react";
 import ModalPortal from "./utils/modalPortal";
 import Modal from "../components/Modal";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { difficultyAtom } from "../atoms/atom";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { difficultyAtom, matchedCardsAtom, matchingCardsAtom } from "../atoms/atom";
 
 
 
@@ -31,8 +31,8 @@ const MatchCardsGame = () => {
   };
 
   /** 카드매칭 관련 함수 */
-  const [matchingArr, setMatchingArr] = useState([]);
-  const [matchedArr, setMatchedArr] = useState([]);
+  const [matchingArr, setMatchingArr] = useRecoilState(matchingCardsAtom);
+  const [matchedArr, setMatchedArr] = useRecoilState(matchedCardsAtom);
 
   const matchCards = (data) => {
     if (matchingArr.length < 2) {

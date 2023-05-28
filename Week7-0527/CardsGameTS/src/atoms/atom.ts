@@ -9,3 +9,13 @@ export const difficultyAtom = atom({
   key: "difficulty",
   default: "Easy",
 });
+
+export const matchingCardsAtom = atom({
+    key: "matchingCards",
+    default: [],
+  });
+
+export const matchedCardsAtom = atom({
+key: "matchedCards",
+default: [],
+});
