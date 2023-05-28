@@ -3,7 +3,8 @@ import MatchCardsGame from "./Pages/MatchCardsGame";
 import { createGlobalStyle } from "styled-components";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "./assets/theme";
-import { RecoilRoot } from "recoil";
+import { RecoilRoot, useRecoilValue } from "recoil";
+import { darkModeAtom } from "./atoms/atom";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -72,14 +73,12 @@ table {
 }
 `;
 function App() {
-  const [isDark, setIsDark] = useState<boolean>(false);
+  const isDark = useRecoilValue(darkModeAtom);
   return (
     <>
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <GlobalStyle />
-        <RecoilRoot>
-          <MatchCardsGame setIsDark={setIsDark} />
-        </RecoilRoot>
+        <MatchCardsGame />
       </ThemeProvider>
     </>
   );

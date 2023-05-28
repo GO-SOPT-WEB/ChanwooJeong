@@ -8,18 +8,16 @@ import Modal from "../components/Modal";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { difficultyAtom } from "../atoms/atom";
 
-interface DarkModeProps {
-  setIsDark: Dispatch<SetStateAction<boolean>>;
-}
 
-const MatchCardsGame = (props: DarkModeProps) => {
-  const { setIsDark } = props;
+
+const MatchCardsGame = () => {
+
 
   //첫 난이도 설정
   const [difficulty, setDifficulty] = useState("Easy");
 
   const setDifficultyFn = useSetRecoilState(difficultyAtom)
-  
+
   /** 전체 리셋 + 난이도 Easy로 변경하는 리셋함수 */
   const allReset = () => {
     reSet();
@@ -66,7 +64,6 @@ const MatchCardsGame = (props: DarkModeProps) => {
           currentDifficulty={difficulty}
           matchedArr={matchedArr}
           allReset={allReset}
-          setIsDark={setIsDark}
           setIsModalOpen={setIsModalOpen}
         />
         <DifficultySection />

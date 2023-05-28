@@ -2,6 +2,61 @@ import styled from "styled-components";
 import { BigButton } from "../../components/Buttons";
 import { useEffect } from "react";
 import { ProgressBar } from "react-progressbar-fancy";
+import { darkModeAtom } from "../../atoms/atom";
+import { useSetRecoilState } from "recoil";
+
+const Header = (props) => {
+  const { currentDifficulty, matchedArr, allReset, setIsModalOpen } = props;
+
+  /** 난이도에 따른 목표 갯수 설정 */
+  let goalCount = null;
+  if (currentDifficulty === "Easy") goalCount = 5;
+  if (currentDifficulty === "Normal") goalCount = 7;
+  if (currentDifficulty === "Hard") goalCount = 9;
+
+  /** 현재까지 맞춘 카드 쌍의 갯수 설정 */
+  const howManyCorrect = matchedArr.length;
+
+  /** 목표한 쌍과 맞춘 쌍의 카드가 일치한다면 Game Clear 모달 오픈 */
+  useEffect(() => {
+    if (goalCount === howManyCorrect) setIsModalOpen(true);
+  }, [howManyCorrect, setIsModalOpen, goalCount]);
+
+  const percent = (howManyCorrect / goalCount) * 100;
+
+  const setIsDark = useSetRecoilState(darkModeAtom);
+
+  return (
+    <>
+      <Wrapper>
+        <ButtonBox>
+          <BigButton onClick={() => setIsDark((prev) => !prev)}>
+            Theme
+          </BigButton>
+        </ButtonBox>
+        <MainCenterBox>
+          <h1>🐣포켓몬 카드 맞추기 게임🐣</h1>
+          <ScoreBoard>
+            {howManyCorrect} /{" "}
+            {
+              {
+                Easy: "5",
+                Normal: "7",
+                Hard: "9",
+              }[currentDifficulty]
+            }
+          </ScoreBoard>
+          <StyledProgressBar score={percent} />
+        </MainCenterBox>
+        <ButtonBox>
+          <BigButton onClick={allReset}>AllReset</BigButton>
+        </ButtonBox>
+      </Wrapper>
+    </>
+  );
+};
+
+export default Header;
 
 const Wrapper = styled.header`
   display: flex;
@@ -43,55 +98,3 @@ const ButtonBox = styled.div`
   align-items: center;
   width: 20%;
 `;
-
-const Header = (props) => {
-  const { currentDifficulty, matchedArr, allReset, setIsDark, setIsModalOpen } =
-    props;
-
-  /** 난이도에 따른 목표 갯수 설정 */
-  let goalCount = null;
-  if (currentDifficulty === "Easy") goalCount = 5;
-  if (currentDifficulty === "Normal") goalCount = 7;
-  if (currentDifficulty === "Hard") goalCount = 9;
-
-  /** 현재까지 맞춘 카드 쌍의 갯수 설정 */
-  const howManyCorrect = matchedArr.length;
-
-  /** 목표한 쌍과 맞춘 쌍의 카드가 일치한다면 Game Clear 모달 오픈 */
-  useEffect(() => {
-    if (goalCount === howManyCorrect) setIsModalOpen(true);
-  }, [howManyCorrect, setIsModalOpen, goalCount]);
-
-  const percent = (howManyCorrect / goalCount) * 100;
-
-  return (
-    <>
-      <Wrapper>
-        <ButtonBox>
-          <BigButton onClick={() => setIsDark((prev) => !prev)}>
-            Theme
-          </BigButton>
-        </ButtonBox>
-        <MainCenterBox>
-          <h1>🐣포켓몬 카드 맞추기 게임🐣</h1>
-          <ScoreBoard>
-            {howManyCorrect} /{" "}
-            {
-              {
-                Easy: "5",
-                Normal: "7",
-                Hard: "9",
-              }[currentDifficulty]
-            }
-          </ScoreBoard>
-          <StyledProgressBar score={percent} />
-        </MainCenterBox>
-        <ButtonBox>
-          <BigButton onClick={allReset}>AllReset</BigButton>
-        </ButtonBox>
-      </Wrapper>
-    </>
-  );
-};
-
-export default Header;
