@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import MatchCardsGame from "./Pages/MatchCardsGame";
 import { createGlobalStyle } from "styled-components";
 import { ThemeProvider } from "styled-components";

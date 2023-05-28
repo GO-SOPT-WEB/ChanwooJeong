@@ -5,6 +5,10 @@
 |---|---|---|
 |1주차|❤️기본과제|[링크](https://github.com/GO-SOPT-WEB/ChanwooJeong/pull/2)|
 |1주차|❤️심화과제|[링크](https://github.com/GO-SOPT-WEB/ChanwooJeong/pull/2)|
+|1주차|❤️생각과제|[링크](https://github.com/GO-SOPT-WEB/ChanwooJeong/pull/2)|
+|2주차|❤️창업Store 기본,심화 과제|[링크](https://github.com/GO-SOPT-WEB/ChanwooJeong/pull/10)|
+|2주차|❤️웹투두 기본,심화 과제|[링크](https://github.com/GO-SOPT-WEB/ChanwooJeong/pull/11)|
+|2주차|❤️생각과제|[링크](https://github.com/GO-SOPT-WEB/ChanwooJeong/pull/12)|
 |1주차|✍️생각과제|[링크](https://github.com/GO-SOPT-WEB/ChanwooJeong/pull/2)|
 |2주차|🏠창업Store 기본,심화 과제|[링크](https://github.com/GO-SOPT-WEB/ChanwooJeong/pull/10)|
 |2주차|❤️웹투두 기본,심화 과제|[링크](https://github.com/GO-SOPT-WEB/ChanwooJeong/pull/11)|
@@ -13,4 +17,3 @@
 |3주차|✍️생각과제|[링크](https://github.com/GO-SOPT-WEB/ChanwooJeong/pull/16)|
 |4주차|☀️날씨웹 기본,심화 과제|[링크](https://github.com/GO-SOPT-WEB/ChanwooJeong/pull/18)|
 |4주차|✍️생각과제|[링크](https://github.com/GO-SOPT-WEB/ChanwooJeong/pull/19)|
-
