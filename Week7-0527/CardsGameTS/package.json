@@ -13,6 +13,9 @@
     "@types/node": "^20.2.5",
     "@types/styled-components": "^5.1.26",
     "react-progressbar-fancy": "^1.1.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.11.1",
     "styled-components": "^5.3.10",
     "typescript": "^5.0.4"
   },

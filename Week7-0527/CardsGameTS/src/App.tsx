@@ -71,7 +71,7 @@ table {
 }
 `;
 function App() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState<boolean>(false);
   return (
     <>
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
