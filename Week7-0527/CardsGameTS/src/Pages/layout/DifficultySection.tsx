@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { DifficultyButton } from "../../components/Buttons";
+import { difficultyAtom } from "../../atoms/atom";
+import { useRecoilState } from "recoil";
 
 const Wrapper = styled.section`
   display: flex;
@@ -13,22 +15,24 @@ const Wrapper = styled.section`
 const DifficultyType = ["Easy", "Normal", "Hard"];
 
 const DifficultySection = (props) => {
-  const { currentDifficulty, setDifficulty, reset } = props;
+  // const { currentDifficulty, setDifficulty, reset } = props;
+
+  const [difficulty , setDifficulty] = useRecoilState(difficultyAtom)
 
   return (
     <Wrapper>
-      {DifficultyType.map((difficulty, i) => {
+      {DifficultyType.map((difficultyOption, i) => {
         return (
           <DifficultyButton
             key={i}
             onClick={() => {
-              setDifficulty(difficulty);
-              reset();
+              setDifficulty(difficultyOption);
+              // reset();
             }}
-            difficulty={difficulty}
-            currentDifficulty={currentDifficulty}
+            difficulty={difficultyOption}
+            currentDifficulty={difficulty}
           >
-            {difficulty}
+            {difficultyOption}
           </DifficultyButton>
         );
       })}
