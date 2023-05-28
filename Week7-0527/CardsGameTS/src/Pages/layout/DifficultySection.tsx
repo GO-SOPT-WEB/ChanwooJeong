@@ -14,10 +14,8 @@ const Wrapper = styled.section`
 
 const DifficultyType = ["Easy", "Normal", "Hard"];
 
-const DifficultySection = (props) => {
-  // const { currentDifficulty, setDifficulty, reset } = props;
-
-  const [difficulty , setDifficulty] = useRecoilState(difficultyAtom)
+const DifficultySection = () => {
+  const [difficulty, setDifficulty] = useRecoilState(difficultyAtom);
 
   return (
     <Wrapper>
@@ -27,7 +25,6 @@ const DifficultySection = (props) => {
             key={i}
             onClick={() => {
               setDifficulty(difficultyOption);
-              // reset();
             }}
             difficulty={difficultyOption}
             currentDifficulty={difficulty}
