@@ -1,9 +1,9 @@
 import { atom } from "recoil";
 
 export const darkModeAtom = atom({
-    key: "darkMode",
-    default: false,
-  });
+  key: "darkMode",
+  default: false,
+});
 
 export const difficultyAtom = atom({
   key: "difficulty",
@@ -11,11 +11,16 @@ export const difficultyAtom = atom({
 });
 
 export const matchingCardsAtom = atom({
-    key: "matchingCards",
-    default: [],
-  });
+  key: "matchingCards",
+  default: [],
+});
 
 export const matchedCardsAtom = atom({
-key: "matchedCards",
-default: [],
+  key: "matchedCards",
+  default: [],
+});
+
+export const modalOpenAtom = atom({
+  key: "isModalOpen",
+  default: false,
 });

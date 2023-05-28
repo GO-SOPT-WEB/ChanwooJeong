@@ -6,17 +6,18 @@ import { Dispatch, SetStateAction, useState } from "react";
 import ModalPortal from "./utils/modalPortal";
 import Modal from "../components/Modal";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { difficultyAtom, matchedCardsAtom, matchingCardsAtom } from "../atoms/atom";
-
-
+import {
+  difficultyAtom,
+  matchedCardsAtom,
+  matchingCardsAtom,
+  modalOpenAtom,
+} from "../atoms/atom";
 
 const MatchCardsGame = () => {
-
-
   //첫 난이도 설정
   const [difficulty, setDifficulty] = useState("Easy");
 
-  const setDifficultyFn = useSetRecoilState(difficultyAtom)
+  const setDifficultyFn = useSetRecoilState(difficultyAtom);
 
   /** 전체 리셋 + 난이도 Easy로 변경하는 리셋함수 */
   const allReset = () => {
@@ -54,15 +55,13 @@ const MatchCardsGame = () => {
     }
   };
 
-  /** 모달 열고 닫는 useState */
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  /** 모달 열고 닫는 Recoil atom value */
+  const isModalOpen = useRecoilValue(modalOpenAtom);
 
   return (
     <>
       <Wrapper>
-        <Header
-          setIsModalOpen={setIsModalOpen}
-        />
+        <Header />
         <DifficultySection />
         <CardsSection
           currentDifficulty={difficulty}
@@ -72,9 +71,7 @@ const MatchCardsGame = () => {
         />
         {isModalOpen && (
           <ModalPortal>
-            <Modal allReset={allReset} setIsModalOpen={setIsModalOpen}>
-              Game Clear🎉
-            </Modal>
+            <Modal allReset={allReset}>Game Clear🎉</Modal>
           </ModalPortal>
         )}
       </Wrapper>

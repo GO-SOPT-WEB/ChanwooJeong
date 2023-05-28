@@ -2,25 +2,32 @@ import styled from "styled-components";
 import { BigButton } from "../../components/Buttons";
 import { useEffect } from "react";
 import { ProgressBar } from "react-progressbar-fancy";
-import { darkModeAtom, difficultyAtom, matchedCardsAtom, matchingCardsAtom } from "../../atoms/atom";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import {
+  darkModeAtom,
+  difficultyAtom,
+  matchedCardsAtom,
+  matchingCardsAtom,
+  modalOpenAtom,
+} from "../../atoms/atom";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 
-const Header = (props) => {
-  const {  setIsModalOpen } = props;
-
+const Header = () => {
   const setIsDark = useSetRecoilState(darkModeAtom);
   const currentDifficulty = useRecoilValue(difficultyAtom);
   const matchedArr = useRecoilValue(matchedCardsAtom);
 
-  const setDifficultyFn = useSetRecoilState(difficultyAtom)
-  const setMatchingCardsArr = useSetRecoilState(matchingCardsAtom)
-  const setMatchedCardsArr = useSetRecoilState(matchedCardsAtom)
+  const setDifficultyFn = useSetRecoilState(difficultyAtom);
+  const setMatchingCardsArr = useSetRecoilState(matchingCardsAtom);
+  const setMatchedCardsArr = useSetRecoilState(matchedCardsAtom);
 
-  const allReset = () =>{
-    setDifficultyFn('Easy')
-    setMatchingCardsArr([])
-    setMatchedCardsArr([])
-  }
+  /** 모달 열고 닫는 useState */
+  const setIsModalOpen = useSetRecoilState(modalOpenAtom);
+
+  const allReset = () => {
+    setDifficultyFn("Easy");
+    setMatchingCardsArr([]);
+    setMatchedCardsArr([]);
+  };
   /** 난이도에 따른 목표 갯수 설정 */
   let goalCount = null;
   if (currentDifficulty === "Easy") goalCount = 5;

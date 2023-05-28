@@ -1,4 +1,6 @@
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
+import { modalOpenAtom } from "../atoms/atom";
 
 const ModalWrapper = styled.div`
   position: fixed;
@@ -58,7 +60,10 @@ const Confetti = styled.div`
   }
 `;
 
-const Modal = ({ children, setIsModalOpen, allReset }) => {
+const Modal = ({ children, allReset }) => {
+
+    /** 모달 열고 닫는 useState */
+    const setIsModalOpen = useSetRecoilState(modalOpenAtom);
   
   /** 게임으로 돌아가기 + 전체리셋 **/
   const resetAndReturnToGame = () => {
