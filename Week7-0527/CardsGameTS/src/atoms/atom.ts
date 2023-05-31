@@ -10,12 +10,28 @@ export const difficultyAtom = atom({
   default: "Easy",
 });
 
-export const matchingCardsAtom = atom({
+interface CardMatching {
+  Primarykey: number;
+  pokemonName: string;
+}
+
+export const matchingCardsAtom = atom<CardMatching[]>({
   key: "matchingCards",
   default: [],
 });
 
-export const matchedCardsAtom = atom({
+interface CardMatched {
+  first: {
+    Primarykey: number;
+    pokemonName: string;
+  };
+  second: {
+    Primarykey: number;
+    pokemonName: string;
+  };
+}
+
+export const matchedCardsAtom = atom<CardMatched[]>({
   key: "matchedCards",
   default: [],
 });
