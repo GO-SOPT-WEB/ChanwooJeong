@@ -9,7 +9,7 @@ import {
   matchingCardsAtom,
   modalOpenAtom,
 } from "../../atoms/atom";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
 const Header = () => {
   const setIsDark = useSetRecoilState(darkModeAtom);
@@ -29,7 +29,7 @@ const Header = () => {
     setMatchedCardsArr([]);
   };
   /** 난이도에 따른 목표 갯수 설정 */
-  let goalCount = null;
+  let goalCount = 0;
   if (currentDifficulty === "Easy") goalCount = 5;
   if (currentDifficulty === "Normal") goalCount = 7;
   if (currentDifficulty === "Hard") goalCount = 9;
