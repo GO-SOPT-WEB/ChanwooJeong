@@ -1,6 +1,11 @@
 import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
-import { modalOpenAtom } from "../atoms/atom";
+import {
+  difficultyAtom,
+  matchedCardsAtom,
+  matchingCardsAtom,
+  modalOpenAtom,
+} from "../atoms/atom";
 
 const ModalWrapper = styled.div`
   position: fixed;
@@ -60,11 +65,20 @@ const Confetti = styled.div`
   }
 `;
 
-const Modal = ({ children, allReset }) => {
+const Modal = ({ children }) => {
+  const setDifficultyFn = useSetRecoilState(difficultyAtom);
+  const setMatchingCardsArr = useSetRecoilState(matchingCardsAtom);
+  const setMatchedCardsArr = useSetRecoilState(matchedCardsAtom);
 
-    /** 모달 열고 닫는 useState */
-    const setIsModalOpen = useSetRecoilState(modalOpenAtom);
+  const allReset = () => {
+    setDifficultyFn("Easy");
+    setMatchingCardsArr([]);
+    setMatchedCardsArr([]);
+  };
   
+  /** 모달 열고 닫는 useState */
+  const setIsModalOpen = useSetRecoilState(modalOpenAtom);
+
   /** 게임으로 돌아가기 + 전체리셋 **/
   const resetAndReturnToGame = () => {
     allReset();
