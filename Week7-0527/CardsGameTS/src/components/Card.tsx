@@ -2,6 +2,8 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useRecoilState } from "recoil";
+import { matchedCardsAtom, matchingCardsAtom } from "../atoms/atom";
 const Wrapper = styled.article`
   cursor: pointer;
   margin: 2rem;
@@ -121,34 +123,64 @@ const Wrapper = styled.article`
   }
 `;
 
-const Card = (props) => {
+interface CardProps {
+  Primarykey: number;
+  pokemonName: string;
+  pokemonImg: string;
+}
+
+interface PayloadProps {
+  Primarykey: number;
+  pokemonName: string;
+}
+
+const Card = (props: CardProps) => {
   const {
     Primarykey,
     pokemonName,
     pokemonImg,
-    matchCards,
-    matchCardArr,
-    setMatchingArr,
   } = props;
+
+  /** 카드매칭 관련 함수 */
+  const [matchingArr, setMatchingArr] = useRecoilState(matchingCardsAtom);
+  const [matchedArr, setMatchedArr] = useRecoilState(matchedCardsAtom);
+
+  const matchCards = (data: PayloadProps) => {
+    if (matchingArr.length < 2) {
+      const newMatchCardArr = [...matchingArr];
+      newMatchCardArr.push(data);
+      setMatchingArr(newMatchCardArr);
+      console.log("첫카드를 골랐습니다");
+
+      if (matchingArr.length === 1) {
+        if (matchingArr[0].pokemonName === data.pokemonName) {
+          const newMatchedArr = [...matchedArr];
+          newMatchedArr.push({ first: matchingArr[0], second: data });
+          setMatchedArr(newMatchedArr);
+          console.log("두카드가 일치 합니다");
+        } else {
+          console.log("두카드가 일치 하지 않습니다");
+        }
+      }
+    }
+  };
 
   /** 카드 막기 및 카드를 매칭할 때 전체 이벤트 막기 위한 useState */
   const [active, setActive] = useState(false);
   const [allStop, setAllStop] = useState(false);
 
-
   /** 2개의 카드의 동일 유무를 가리기 위한 로직 */
   useEffect(() => {
-    if (matchCardArr.matchingArr.length === 2) {
+    if (matchingArr.length === 2) {
       setAllStop(true);
       setTimeout(() => setActive(false), 1000);
       setMatchingArr([]);
       setTimeout(() => setAllStop(false), 1000);
     }
-  }, [matchCardArr.matchingArr ,setActive , setMatchingArr]);
-
+  }, [matchingArr, setActive, setMatchingArr]);
 
   /** 카드가 이미 매칭된 짝인지 판별하는 로직 */
-  const alreadyMatched = matchCardArr.matchedArr.some((pokemon) => {
+  const alreadyMatched = matchedArr.some((pokemon) => {
     return (
       pokemon.first.pokemonName === pokemonName ||
       pokemon.second.pokemonName === pokemonName
@@ -157,6 +189,9 @@ const Card = (props) => {
 
   /** 카드를 매칭하는 로직 */
   const matchHandler = () => {
+    if (alreadyMatched) return;
+    if (allStop) return;
+    if (active) return;
     const payload = { Primarykey, pokemonName };
     matchCards(payload);
     setActive(true);
@@ -164,7 +199,7 @@ const Card = (props) => {
 
   return (
     <Wrapper
-      onClick={alreadyMatched || allStop || active ? null : matchHandler}
+      onClick={matchHandler}
     >
       <div className="card">
         <div
