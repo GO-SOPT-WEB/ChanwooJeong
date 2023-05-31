@@ -13,8 +13,8 @@ const Wrapper = styled.section`
   margin: 0 1.5rem;
   margin-bottom: 7rem;
 `;
-const CardsSection = (props) => {
-  const { matchCards, matchCardArr, setMatchingArr } = props;
+const CardsSection = () => {
+  
 
   const currentDifficulty = useRecoilValue(difficultyAtom);
 
@@ -31,12 +31,8 @@ const CardsSection = (props) => {
         <Card
           key={i}
           Primarykey={i}
-          pokemonId={pokemonData.id}
           pokemonName={pokemonData.name}
           pokemonImg={pokemonData.img}
-          matchCards={matchCards}
-          matchCardArr={matchCardArr}
-          setMatchingArr={setMatchingArr}
         />
       ))}
     </Wrapper>
