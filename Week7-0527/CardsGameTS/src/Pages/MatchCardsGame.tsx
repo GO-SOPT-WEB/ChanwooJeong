@@ -31,29 +31,29 @@ const MatchCardsGame = () => {
     setMatchedArr([]);
   };
 
-  /** 카드매칭 관련 함수 */
+  // /** 카드매칭 관련 함수 */
   const [matchingArr, setMatchingArr] = useRecoilState(matchingCardsAtom);
   const [matchedArr, setMatchedArr] = useRecoilState(matchedCardsAtom);
 
-  const matchCards = (data) => {
-    if (matchingArr.length < 2) {
-      const newMatchCardArr = [...matchingArr];
-      newMatchCardArr.push(data);
-      setMatchingArr(newMatchCardArr);
-      console.log("첫카드를 골랐습니다");
+  // const matchCards = (data) => {
+  //   if (matchingArr.length < 2) {
+  //     const newMatchCardArr = [...matchingArr];
+  //     newMatchCardArr.push(data);
+  //     setMatchingArr(newMatchCardArr);
+  //     console.log("첫카드를 골랐습니다");
 
-      if (matchingArr.length === 1) {
-        if (matchingArr[0].pokemonName === data.pokemonName) {
-          const newMatchedArr = [...matchedArr];
-          newMatchedArr.push({ first: matchingArr[0], second: data });
-          setMatchedArr(newMatchedArr);
-          console.log("두카드가 일치 합니다");
-        } else {
-          console.log("두카드가 일치 하지 않습니다");
-        }
-      }
-    }
-  };
+  //     if (matchingArr.length === 1) {
+  //       if (matchingArr[0].pokemonName === data.pokemonName) {
+  //         const newMatchedArr = [...matchedArr];
+  //         newMatchedArr.push({ first: matchingArr[0], second: data });
+  //         setMatchedArr(newMatchedArr);
+  //         console.log("두카드가 일치 합니다");
+  //       } else {
+  //         console.log("두카드가 일치 하지 않습니다");
+  //       }
+  //     }
+  //   }
+  // };
 
   /** 모달 열고 닫는 Recoil atom value */
   const isModalOpen = useRecoilValue(modalOpenAtom);
@@ -63,11 +63,7 @@ const MatchCardsGame = () => {
       <Wrapper>
         <Header />
         <DifficultySection />
-        <CardsSection
-          matchCards={matchCards}
-          setMatchingArr={setMatchingArr}
-          matchCardArr={{ matchingArr, matchedArr }}
-        />
+        <CardsSection />
         {isModalOpen && (
           <ModalPortal>
             <Modal allReset={allReset}>Game Clear🎉</Modal>
