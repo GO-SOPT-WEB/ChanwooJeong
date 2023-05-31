@@ -65,7 +65,11 @@ const Confetti = styled.div`
   }
 `;
 
-const Modal = ({ children }) => {
+interface ModalProps {
+  children: React.ReactNode;
+}
+
+const Modal = ({ children }: ModalProps) => {
   const setDifficultyFn = useSetRecoilState(difficultyAtom);
   const setMatchingCardsArr = useSetRecoilState(matchingCardsAtom);
   const setMatchedCardsArr = useSetRecoilState(matchedCardsAtom);
@@ -75,7 +79,7 @@ const Modal = ({ children }) => {
     setMatchingCardsArr([]);
     setMatchedCardsArr([]);
   };
-  
+
   /** 모달 열고 닫는 useState */
   const setIsModalOpen = useSetRecoilState(modalOpenAtom);
 
@@ -87,8 +91,8 @@ const Modal = ({ children }) => {
 
   /** GameClear 축하 색종이 생성함수**/
   const manyConfetti = () => {
-    const Confetties = Array.from({ length: 1000 }).map((index) => {
-      return <Confetti key={index} />;
+    const Confetties = Array.from({ length: 1000 }).map(() => {
+      return <Confetti />;
     });
     return Confetties;
   };
