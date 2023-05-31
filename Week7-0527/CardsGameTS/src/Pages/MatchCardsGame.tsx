@@ -64,7 +64,6 @@ const MatchCardsGame = () => {
         <Header />
         <DifficultySection />
         <CardsSection
-          currentDifficulty={difficulty}
           matchCards={matchCards}
           setMatchingArr={setMatchingArr}
           matchCardArr={{ matchingArr, matchedArr }}
