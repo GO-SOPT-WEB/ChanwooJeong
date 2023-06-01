@@ -1,5 +1,16 @@
 import styled, { css } from "styled-components";
 
+/** 헤더에 들어가는 큰 버튼 **/
+
+interface BigButtonProps {
+  children: React.ReactNode;
+  onClick: () => void;
+}
+
+const BigButton = ({ children, ...props }: BigButtonProps) => {
+  return <ResetBtnWrapper {...props}>{children}</ResetBtnWrapper>;
+};
+
 const ResetBtnWrapper = styled.button`
   margin: 0 1rem;
   padding: 1rem;
@@ -20,12 +31,22 @@ const ResetBtnWrapper = styled.button`
   }
 `;
 
-/** 헤더에 들어가는 큰 버튼 **/
-const BigButton = ({ children, ...props }) => {
-  return <ResetBtnWrapper {...props}>{children}</ResetBtnWrapper>;
+/** 난이도 변경 버튼 **/
+interface DifficultyBtnWrapperProps {
+  difficulty: string;
+  currentDifficulty: string;
+}
+
+interface DifficultyButtonProps extends DifficultyBtnWrapperProps {
+  children: React.ReactNode;
+  onClick: () => void;
+}
+
+const DifficultyButton = ({ children, ...props }: DifficultyButtonProps) => {
+  return <DifficultyBtnWrapper {...props}>{children}</DifficultyBtnWrapper>;
 };
 
-const DifficultyBtnWrapper = styled.button`
+const DifficultyBtnWrapper = styled.button<DifficultyBtnWrapperProps>`
   width: 10rem;
   height: 5rem;
 
@@ -49,10 +70,5 @@ const DifficultyBtnWrapper = styled.button`
       box-shadow: 0 0.4rem 0 #529e55;
     `};
 `;
-
-/** 난이도 변경 버튼 **/
-const DifficultyButton = ({ children, ...props }) => {
-  return <DifficultyBtnWrapper {...props}>{children}</DifficultyBtnWrapper>;
-};
 
 export { BigButton, DifficultyButton };
