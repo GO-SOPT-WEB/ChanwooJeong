@@ -1,10 +1,19 @@
 import { POKEMON_LIST } from "../../assets/cardsData";
 
-const getPokemonListRandom = (currentDifficulty) => {
-  let pokemonList = [];
+interface Card {
+  id: number;
+  name: string;
+  tag: string[];
+  img: string;
+  JJim: boolean;
+  evolution: number;
+}
+
+const getPokemonListRandom = (currentDifficulty: string) => {
+  let pokemonList: Card[] = [];
 
   /** 카드 data 배열을 전달해주면 랜덤으로 섞어주는 변수 */
-  const setRandomCardList = (cardList) => {
+  const setRandomCardList = (cardList: Card[]) => {
     return [...cardList]
       .sort(() => Math.random() - 0.5)
       .sort(() => Math.random() - 0.5);
