@@ -13,3 +13,4 @@
 |3주차|✍️생각과제|[링크](https://github.com/GO-SOPT-WEB/ChanwooJeong/pull/16)|
 |4주차|☀️날씨웹 기본,심화 과제|[링크](https://github.com/GO-SOPT-WEB/ChanwooJeong/pull/18)|
 |4주차|✍️생각과제|[링크](https://github.com/GO-SOPT-WEB/ChanwooJeong/pull/19)|
+|7주차|🎰카드게임 TS 리팩토링|[링크](https://github.com/GO-SOPT-WEB/ChanwooJeong/pull/21)|
